@@ -5,14 +5,22 @@
   "version": "0.1.0",
   "author": "Kyle Mathews <mathews.kyle@gmail.com>",
   "dependencies": {
+    "dotenv": "^16.0.3",
     "gatsby": "^5.5.0",
     "gatsby-plugin-image": "^3.5.0",
     "gatsby-plugin-manifest": "^5.5.0",
+    "gatsby-plugin-root-import": "^2.0.9",
     "gatsby-plugin-sharp": "^5.5.0",
+    "gatsby-plugin-svgr": "^3.0.0-beta.0",
+    "gatsby-source-contentful": "^8.5.0",
     "gatsby-source-filesystem": "^5.5.0",
     "gatsby-transformer-sharp": "^5.5.0",
+    "gsap": "npm:@gsap/shockingly@^3.11.1",
+    "path": "^0.12.7",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "styled-components": "^5.3.6",
+    "the-new-css-reset": "^1.8.3"
   },
   "devDependencies": {
     "prettier": "^2.8.3"

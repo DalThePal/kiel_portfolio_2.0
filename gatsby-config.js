@@ -1,12 +1,6 @@
-/**
- * Configure your Gatsby site with this file.
- *
- * See: https://www.gatsbyjs.com/docs/reference/config-files/gatsby-config/
- */
+require("dotenv/config")
+const path = require('path')
 
-/**
- * @type {import('gatsby').GatsbyConfig}
- */
 module.exports = {
   siteMetadata: {
     title: `Gatsby Default Starter`,
@@ -16,6 +10,15 @@ module.exports = {
   },
   plugins: [
     `gatsby-plugin-image`,
+    `gatsby-transformer-sharp`,
+    `gatsby-plugin-sharp`,
+    {
+      resolve: "gatsby-source-contentful",
+      options: {
+        accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
+        spaceId: process.env.CONTENTFUL_SPACE_ID,
+      },
+    },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -23,8 +26,6 @@ module.exports = {
         path: `${__dirname}/src/images`,
       },
     },
-    `gatsby-transformer-sharp`,
-    `gatsby-plugin-sharp`,
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
@@ -32,11 +33,43 @@ module.exports = {
         short_name: `starter`,
         start_url: `/`,
         background_color: `#663399`,
-        // This will impact how browsers show your PWA/website
-        // https://css-tricks.com/meta-theme-color-and-trickery/
-        // theme_color: `#663399`,
+        theme_color: `#663399`,
         display: `minimal-ui`,
         icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
+      },
+    },
+    {
+      resolve: 'gatsby-plugin-root-import',
+      options: {
+        root: path.join(__dirname, "src"),
+      }
+    },
+    {
+      resolve: "gatsby-plugin-svgr",
+      options: {
+        prettier: true,
+        svgo: true,
+        svgoConfig: {
+          plugins: [
+            "removeViewBox",
+            "removeDimensions",
+            "removeRasterImages",
+            "reusePaths",
+            "removeUselessDefs",
+            {
+              name: "cleanupIDs",
+              active: false,
+            },
+            {
+              name: "prefixIds",
+              active: false,
+            },
+            {
+              name: "collapseGroups",
+              active: false,
+            },
+          ],
+        },
       },
     },
   ],

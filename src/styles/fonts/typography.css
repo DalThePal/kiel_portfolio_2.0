@@ -1,0 +1,25 @@
+@font-face {
+	font-family: 'Neue Montreal';
+	src: url('./NeueMontreal-Regular.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+	font-family: 'Neue Montreal';
+	src: url('./NeueMontreal-Bold.otf') format('opentype');
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Ogg';
+  src: url('./Ogg-RegularItalic.otf') format('opentype');
+  font-weight: 400;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Tusker Grotesk';
+  src: url('./Tusker-Grotesk-2700-Bold.otf') format('opentype');
+}
