@@ -1,5 +1,5 @@
 import React from 'react'
-import Layout from 'components/layout'
+import Layout from 'components/Layout'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { ScrollSmoother } from 'gsap/ScrollSmoother'

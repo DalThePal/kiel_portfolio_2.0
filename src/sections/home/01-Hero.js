@@ -3,7 +3,7 @@ import styled, { css } from 'styled-components'
 import text from 'styles/text'
 import colors from 'styles/colors'
 import { fresponsive } from 'utils/fullyResponsive'
-import Button from 'components/button'
+import Button from 'components/Button'
 import TempBG from 'images/temp-hero-bg.jpg'
 
 const Hero = () => {

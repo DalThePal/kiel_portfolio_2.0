@@ -4,8 +4,8 @@ export const mobileDesignSize = 375
 export const tabletBreakpoint = 1024
 export const tabletDesignSize = 1024
 
-export const desktopBreakpoint = 1660
-export const desktopDesignSize = 1660
+export const desktopBreakpoint = 1440
+export const desktopDesignSize = 1440
 
 const media = {
   mobile: `@media screen and (max-width: ${mobileBreakpoint}px)`,

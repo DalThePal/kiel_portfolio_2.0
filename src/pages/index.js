@@ -3,16 +3,18 @@ import { graphql } from 'gatsby'
 import Seo from "components/seo"
 import Hero from 'sections/home/01-Hero'
 import Marquee from "sections/home/02-Marquee"
-import SelectedWorks from 'sections/home/03-SelectedWorks'
+import Projects from 'sections/home/03-Projects'
+import Manifesto from 'sections/home/04-Manifesto'
 
 const IndexPage = ({ data }) => {
   return (
     <>
       <Hero/>
       <Marquee/>
-      <SelectedWorks
+      <Projects
         caseStudies={data.contentfulHomePage.featuredCaseStudies}
       />
+      <Manifesto/>
     </>
   )
 }
