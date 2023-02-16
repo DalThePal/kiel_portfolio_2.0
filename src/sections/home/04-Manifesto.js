@@ -30,7 +30,7 @@ const Manifesto = () => {
 
   const items = DATA.map((item, index) => (
     <Item key={item}>
-      <Number>0{index + 1}.</Number>
+      <Num>0{index + 1}.</Num>
       <Text>{item}</Text>
     </Item>
   ))
@@ -118,7 +118,7 @@ const Item = styled.li`
   `)}
 `
 
-const Number = styled.span`
+const Num = styled.span`
   ${text.n2}
   -webkit-text-fill-color: transparent;
   -webkit-text-stroke: 1px ${colors.white};

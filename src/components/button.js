@@ -38,6 +38,7 @@ const Wrapper = styled.button`
   background-color: ${colors.white};
   cursor: pointer;
   overflow: hidden;
+  border: 1px solid ${colors.black};
 
   ${fresponsive(css`
     width: 240px;

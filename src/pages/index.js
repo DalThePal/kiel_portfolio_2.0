@@ -1,10 +1,13 @@
 import * as React from "react"
 import { graphql } from 'gatsby'
+
 import Seo from "components/seo"
+
 import Hero from 'sections/home/01-Hero'
 import Marquee from "sections/home/02-Marquee"
 import SelectedWorks from 'sections/home/03-SelectedWorks'
 import Manifesto from "sections/home/04-Manifesto"
+import Services from 'sections/home/05-Services'
 
 const IndexPage = ({ data }) => {
   return (
@@ -15,6 +18,7 @@ const IndexPage = ({ data }) => {
         caseStudies={data.contentfulHomePage.featuredCaseStudies}
       />
       <Manifesto/>
+      <Services/>
     </>
   )
 }
