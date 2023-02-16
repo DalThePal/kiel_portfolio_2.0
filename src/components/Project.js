@@ -3,10 +3,9 @@ import styled, { css } from 'styled-components'
 import colors from 'styles/colors'
 import text from 'styles/text'
 import { fresponsive } from 'utils/fullyResponsive'
-import Runway from 'images/runway.jpg'
 import { GatsbyImage } from 'gatsby-plugin-image'
 
-const WorkCard = ({ number, tags, title, image}) => {
+const Project = ({ number, tags, title, image}) => {
 
   const tagEls = tags.map(item => <span key={item}>{item}</span>)
   const titles = title.split(' ')
@@ -28,7 +27,7 @@ const WorkCard = ({ number, tags, title, image}) => {
   )
 }
 
-export default WorkCard
+export default Project
 
 const Wrapper = styled.div`
   background-color: ${colors.white};

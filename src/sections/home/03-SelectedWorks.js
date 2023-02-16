@@ -1,12 +1,12 @@
 import React from 'react'
 import styled from 'styled-components'
-import WorkCard from 'components/WorkCard'
+import Project from 'components/Project'
 
 const SelectedWorks = ({ caseStudies }) => {
 
   const cases = caseStudies.map((item, index) => {
     return (
-      <WorkCard
+      <Project
         number={index + 1}
         title={item.title}
         tags={item.tags}
