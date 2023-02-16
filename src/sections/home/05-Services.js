@@ -5,8 +5,8 @@ import { fresponsive } from 'utils/fullyResponsive'
 import colors from 'styles/colors'
 import text from 'styles/text'
 
-import Button from 'components/button'
-import UniversalLink from 'components/link'
+import Button from 'components/Button'
+import UniversalLink from 'components/UniversalLink'
 
 const DATA = [
   "Creative Direction",
