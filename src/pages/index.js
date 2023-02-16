@@ -4,6 +4,7 @@ import Seo from "components/seo"
 import Hero from 'sections/home/01-Hero'
 import Marquee from "sections/home/02-Marquee"
 import SelectedWorks from 'sections/home/03-SelectedWorks'
+import Manifesto from "sections/home/04-Manifesto"
 
 const IndexPage = ({ data }) => {
   return (
@@ -13,6 +14,7 @@ const IndexPage = ({ data }) => {
       <SelectedWorks
         caseStudies={data.contentfulHomePage.featuredCaseStudies}
       />
+      <Manifesto/>
     </>
   )
 }

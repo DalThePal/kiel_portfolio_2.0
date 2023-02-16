@@ -15,7 +15,7 @@ const Header = () => (
 export default Header
 
 const Wrapper = styled.header`
-  position: fixed;
+  position: absolute;
   z-index: 9;
   top: 0;
   left: 0;
