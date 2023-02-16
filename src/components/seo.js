@@ -9,19 +9,18 @@ import * as React from "react"
 import { useStaticQuery, graphql } from "gatsby"
 
 function Seo({ description, title, children }) {
-  const { site } = useStaticQuery(
-    graphql`
-      query {
-        site {
-          siteMetadata {
-            title
-            description
-            author
-          }
+  
+  const { site } = useStaticQuery(graphql`
+    query SeoQuery {
+      site {
+        siteMetadata {
+          title
+          description
+          author
         }
       }
-    `
-  )
+    }
+  `)
 
   const metaDescription = description || site.siteMetadata.description
   const defaultTitle = site.siteMetadata?.title

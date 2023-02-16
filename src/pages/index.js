@@ -8,6 +8,7 @@ import Marquee from "sections/home/02-Marquee"
 import SelectedWorks from 'sections/home/03-SelectedWorks'
 import Manifesto from "sections/home/04-Manifesto"
 import Services from 'sections/home/05-Services'
+import CTA from 'sections/home/06-CTA'
 
 const IndexPage = ({ data }) => {
   return (
@@ -19,6 +20,7 @@ const IndexPage = ({ data }) => {
       />
       <Manifesto/>
       <Services/>
+      <CTA/>
     </>
   )
 }
