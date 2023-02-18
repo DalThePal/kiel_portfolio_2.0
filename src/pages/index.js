@@ -1,7 +1,7 @@
 import * as React from "react"
 import { graphql } from 'gatsby'
 
-import Seo from "components/seo"
+import Seo from "components/Seo"
 
 import Hero from 'sections/home/01-Hero'
 import Marquee from "sections/home/02-Marquee"
