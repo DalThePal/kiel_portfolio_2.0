@@ -65,7 +65,7 @@ const Span2 = styled(Span)`
   
   ${fresponsive(css`
   -webkit-text-stroke: 1px ${colors.white};
-    top: 85px;
+    top: 125px;
   `)}
 `
 
