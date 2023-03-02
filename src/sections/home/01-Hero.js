@@ -2,7 +2,7 @@ import React from 'react'
 import styled, { css } from 'styled-components'
 import text from 'styles/text'
 import colors from 'styles/colors'
-import { fresponsive } from 'utils/fullyResponsive'
+import { fresponsive, ftablet } from 'utils/fullyResponsive'
 import Button from 'components/Button'
 import TempBG from 'images/temp-hero-bg.jpg'
 
@@ -36,6 +36,10 @@ const Wrapper = styled.section`
   ${fresponsive(css`
     height: 800px;
   `)}
+
+  ${ftablet(css`
+    height: 1080px;
+  `)}
 `
 
 const Title = styled.h1`
@@ -47,6 +51,10 @@ const Title = styled.h1`
   ${fresponsive(css`
     top: 180px;
   `)}
+
+  ${ftablet(css`
+    top: 350px;
+  `)}
 `
 
 const Span = styled.span`
@@ -57,6 +65,10 @@ const Span = styled.span`
   width: 100%;
   display: flex;
   justify-content: center;
+
+  ${ftablet(css`
+    ${text.h3}
+  `)}
 `
 
 const Span2 = styled(Span)`
@@ -67,11 +79,20 @@ const Span2 = styled(Span)`
   -webkit-text-stroke: 1px ${colors.white};
     top: 125px;
   `)}
+
+  ${ftablet(css`
+    ${text.d2}
+    top: 97px;
+  `)}
 `
 
 const Span3 = styled(Span)`
   ${fresponsive(css`
     top: 192px;
+  `)}
+
+  ${ftablet(css`
+    top: 194px;
   `)}
 `
 
@@ -81,6 +102,11 @@ const PositionedButton = styled(Button)`
   ${fresponsive(css`
     bottom: 48px;
     right: 360px;
+  `)}
+
+  ${ftablet(css`
+    bottom: 104px;
+    right: 102px;
   `)}
 `
 
@@ -94,10 +120,15 @@ const Motto = styled.div`
     bottom: 44px;
     left: 360px;
   `)}
+
+  ${fresponsive(css`
+    bottom: 100px;
+    left: 102px;
+  `)}
 `
 
 const NeverSettle = styled.span`
-  ${text.d4}
+  ${text.d5}
   color: ${colors.white};
   position: relative;
 

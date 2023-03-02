@@ -1,7 +1,7 @@
 import React from 'react'
 import styled, { css } from 'styled-components'
 
-import { fresponsive } from 'utils/fullyResponsive'
+import { fresponsive, ftablet } from 'utils/fullyResponsive'
 
 import text from 'styles/text'
 import colors from 'styles/colors'
@@ -33,6 +33,10 @@ const Wrapper = styled.section`
   ${fresponsive(css`
     height: 1573px;
   `)}
+
+  ${ftablet(css`
+    height: 1298px;
+  `)}
 `
 
 const Ellipse = styled.div`
@@ -51,6 +55,12 @@ const Ellipse = styled.div`
     height: 650px;
     border-radius: 1800px / 650px;
   `)}
+
+  ${ftablet(css`
+    width: 1350px;
+    height: 488px;
+    border-radius: 1350px / 488px;
+  `)}
 `
 
 const Content = styled.div`
@@ -61,6 +71,10 @@ const Content = styled.div`
     width: 1400px;
     height: 447px;
   `)}
+
+  ${ftablet(css`
+    width: 1024px;
+  `)}
 `
 
 const StyledButton = styled(Button)`
@@ -70,6 +84,10 @@ const StyledButton = styled(Button)`
   ${fresponsive(css`
     width: 360px;
     left: 480px;
+  `)}
+
+  ${ftablet(css`
+    left: 411px;
   `)}
 `
 
@@ -83,6 +101,10 @@ const Text = styled.span`
     left: 478px;
     bottom: 94px;
   `)}
+
+  ${ftablet(css`
+    left: 410px;
+  `)}
 `
 
 const Title1 = styled.h3`
@@ -94,6 +116,10 @@ const Title1 = styled.h3`
     top: 17px;
     left: 411px;
     padding-right: 50px;
+  `)}
+
+  ${ftablet(css`
+    left: 203px;
   `)}
 
   &::after {
@@ -124,6 +150,10 @@ const Title2 = styled.h3`
     top: 121px;
     left: 447px;
   `)}
+
+  ${ftablet(css`
+    left: 239px;
+  `)}
 `
 
 const Kicker = styled.span`
@@ -134,5 +164,9 @@ const Kicker = styled.span`
 
   ${fresponsive(css`
     left: 481px;
+  `)}
+
+  ${ftablet(css`
+    left: 411px;
   `)}
 `

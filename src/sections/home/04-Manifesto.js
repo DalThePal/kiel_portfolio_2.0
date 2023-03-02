@@ -6,7 +6,7 @@ import { useStaticQuery, graphql } from 'gatsby'
 import colors from 'styles/colors'
 import text from 'styles/text'
 
-import { fresponsive } from 'utils/fullyResponsive'
+import { fresponsive, ftablet } from 'utils/fullyResponsive'
 
 const DATA = [
   "Put People First: Design for the humans who will use it, and make their experience top priority.",
@@ -69,6 +69,10 @@ const Headshot = styled(GatsbyImage)`
     width: 840px;
     height: 700px;
   `)}
+
+  ${ftablet(css`
+    width: 613px;
+  `)}
 `
 
 const Content = styled.div`
@@ -82,6 +86,10 @@ const Content = styled.div`
     width: 1190px;
     height: 1319px;
   `)}
+
+  ${ftablet(css`
+    width: 819px;
+  `)}
 `
 
 const Title = styled.h2`
@@ -91,7 +99,7 @@ const Title = styled.h2`
   transform: rotate(90deg) translateY(-100%);
   transform-origin: top left;
 
-  ${fresponsive(css`\
+  ${fresponsive(css`
     left: 40px;
     top: 464px;
   `)}
@@ -107,6 +115,11 @@ const List = styled.ul`
     right: 240px;
     top: 651px;
   `)}
+
+  ${ftablet(css`
+    gap: 112px;
+    right: 60px;
+  `)}
 `
 
 const Item = styled.li`
@@ -115,6 +128,10 @@ const Item = styled.li`
   
   ${fresponsive(css`
     gap: 65px;
+  `)}
+
+  ${ftablet(css`
+    gap: 47px;
   `)}
 `
 
@@ -131,6 +148,11 @@ const Text = styled.p`
   ${fresponsive(css` 
     width: 480px;
   `)}
+
+  ${ftablet(css`
+    ${text.h7}
+    width: 350px;
+  `)}
 `
 
 const Copywrite = styled.span`
@@ -142,6 +164,11 @@ const Copywrite = styled.span`
     top: 50px;
     right: 120px;
     width: 360px;
+  `)}
+
+  ${ftablet(css`
+    right: 43px;
+    width: 264px;
   `)}
 
   &::after {
@@ -159,6 +186,10 @@ const Copywrite = styled.span`
     ${fresponsive(css`
       font-size: 30px;
     `)}
+
+    ${ftablet(css`
+      right: 4%;
+    `)}
   }
 `
 
@@ -171,5 +202,9 @@ const Means = styled.span`
     top: 506px;
     right: 360px;
     width: 120px;
+  `)}
+
+  ${ftablet(css`
+    right: 187px;
   `)}
 `

@@ -1,6 +1,6 @@
 import React from 'react'
 import styled, { css } from 'styled-components'
-import { fresponsive } from 'utils/fullyResponsive'
+import { fresponsive, ftablet } from 'utils/fullyResponsive'
 
 import colors from 'styles/colors'
 import text from 'styles/text'
@@ -58,6 +58,10 @@ const Wrapper = styled.section`
   ${fresponsive(css`
     height: 943px;
   `)}
+
+  ${ftablet(css`
+    height: 1041px;
+  `)}
 `
 
 const Title = styled.h2`
@@ -66,8 +70,13 @@ const Title = styled.h2`
   ${fresponsive(css`
     left: 120px;
     top: 250px;
-    width: 670px;
+    width: 560px;
     height: 290px;
+  `)}
+
+  ${ftablet(css`
+    top: 317px;
+    left: 93px;
   `)}
 `
 
@@ -99,6 +108,11 @@ const Content = styled.div`
     left: 360px;
     gap: 50px;
   `)}
+
+  ${ftablet(css`
+    left: 205px;
+    width: 715px;
+  `)}
 `
 
 const Text = styled.p`
@@ -116,6 +130,10 @@ const List = styled.ul`
     gap: 0px 50px;
     height: 104px;
   `)}
+
+  ${ftablet(css`
+    gap: 0px 100px;
+  `)}
 `
 
 const Item = styled.li`
@@ -129,6 +147,10 @@ const Item = styled.li`
   ${fresponsive(css`
     height: 28px;
     width: 360px;
+  `)}
+
+  ${ftablet(css`
+    width: 308px;
   `)}
 `
 
@@ -148,11 +170,19 @@ const Row = styled.div`
   ${fresponsive(css`
     gap: 50px;
   `)}
+
+  ${ftablet(css`
+    gap: 100px;
+  `)}
 `
 
 const StyledButton = styled(Button)`
   ${fresponsive(css`
     width: 360px;
+  `)}
+
+  ${ftablet(css`
+    width: 307px;
   `)}
 `
 
@@ -164,5 +194,10 @@ const FullService = styled.span`
   ${fresponsive(css`
     top: 233px;
     left: 240px;
+  `)}
+
+  ${ftablet(css`
+    top: 300px;
+    left: 205px;
   `)}
 `

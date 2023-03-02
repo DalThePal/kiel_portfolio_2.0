@@ -22,6 +22,7 @@ const Wrapper = styled.footer`
   display: flex;
   align-items: center;
   justify-content: space-between;
+  position: relative;
   
   ${fresponsive(css`
     height: 200px;
@@ -30,12 +31,15 @@ const Wrapper = styled.footer`
 `
 
 const Ellipse = styled.div`
+  position: absolute;
   background-color: ${colors.white};
   border: 2px solid ${colors.black};
-  transform: rotate(30deg);
+  transform: rotate(30deg) translate(-50%, 50%);
   display: flex;
   align-items: center;
   justify-content: center;
+  left: 50%;
+  top: 50%;
 
   ${fresponsive(css`
     width: 108px;

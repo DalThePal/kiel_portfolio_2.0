@@ -139,9 +139,17 @@ const text = {
     font-family: 'Ogg TRIAL';
     font-style: italic;
     font-weight: 400;
-    font-size: 30px;
+    font-size: 45px;
     line-height: 100%;
     letter-spacing: -0.05em;
+  `),
+  d5: fullyResponsive(css`
+    font-family: 'Ogg TRIAL';
+    font-style: italic;
+    font-weight: 400;
+    font-size: 30px;
+    line-height: 100%;
+    letter-spacing: -0.03em;
   `),
 }
 
