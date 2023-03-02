@@ -12,12 +12,18 @@ const replacer = (match, breakpoint) => {
   return ((parseInt(match, 10) / breakpoint) * 100).toFixed(PRECISION)
 }
 
+const designSizes = {
+  desktop: desktopDesignSize,
+  tablet: tabletDesignSize,
+  mobile: mobileDesignSize,
+}
+
 /**
  * takes in css containing pixel values and generates scaling media queries using the breakpoints
  * @param cssIn
  * @returns
  */
-export default function fullyResponsive(cssIn) {
+export default function fullyResponsive(cssIn, only) {
   // if not a string, convert to string
   const cssAsString = typeof cssIn === "string" ? cssIn : cssIn.join("\n")
   const onlyPxValues = cssAsString
@@ -30,6 +36,18 @@ export default function fullyResponsive(cssIn) {
 
   // generate media queries for each breakpoint
   const regex = /(?=[\S ]*;)(\d+)px/g
+
+  if (only) {
+    return css`
+      ${media[only]} {
+        ${cssAsString.replace(
+          regex,
+          (_, px) => `${replacer(px, designSizes[only])}vw`
+        )}
+      }
+    `
+  }
+
   const out = css`
     ${cssAsString}
     ${media.fullWidth} {

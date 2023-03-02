@@ -34,6 +34,7 @@ const Ellipse = styled.div`
   position: absolute;
   background-color: ${colors.white};
   border: 2px solid ${colors.black};
+  transform-origin: center;
   transform: rotate(30deg) translate(-50%, 50%);
   display: flex;
   align-items: center;
