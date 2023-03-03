@@ -4,7 +4,9 @@ import text from 'styles/text'
 import colors from 'styles/colors'
 import { fresponsive, ftablet, fmobile } from 'utils/fullyResponsive'
 import Button from 'components/Button'
-import TempBG from 'images/temp-hero-bg.jpg'
+import TempBg from 'images/temp-hero-bg.jpg'
+import TempBgTablet from 'images/tempBg-tablet.jpg'
+import TempBgMobile from 'images/tempBg-mobile.jpg'
 
 const Hero = () => {
   return (
@@ -27,7 +29,7 @@ export default Hero
 
 const Wrapper = styled.section`
   background-color: ${colors.black};
-  background-image: url(${TempBG});
+  background-image: url(${TempBg});
   background-size: 100% 100%;
   background-position: center;
   position: relative;
@@ -38,10 +40,12 @@ const Wrapper = styled.section`
   `)}
 
   ${ftablet(css`
+    background-image: url(${TempBgTablet});
     height: 1080px;
   `)}
 
   ${fmobile(css`
+    background-image: url(${TempBgMobile});
     height: 950px;
   `)}
 `
