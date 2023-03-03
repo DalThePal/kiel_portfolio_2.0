@@ -1,30 +1,29 @@
 import React from 'react'
 import styled, { css } from 'styled-components'
 
-import { fresponsive, ftablet } from 'utils/fullyResponsive'
+import { fresponsive, ftablet, fmobile } from 'utils/fullyResponsive'
 
 import text from 'styles/text'
 import colors from 'styles/colors'
 
 import Button from 'components/Button'
 
-const CTA = () => {
+const Cta = () => {
   return (
     <Wrapper>
-      <Ellipse>
-        <Content>
-          <Kicker>Far From Ordinary</Kicker>
-          <Title1>Never settle</Title1>
-          <Title2>for boring.</Title2>
-          <Text>Stand out from the crowd.</Text>
-          <StyledButton>Let's work together</StyledButton>
-        </Content>
-      </Ellipse>
+      <Content>
+        <Kicker>Far From Ordinary</Kicker>
+        <Title1>Never settle</Title1>
+        <Title2>for boring.</Title2>
+        <Text>Stand out from the crowd.</Text>
+        <StyledButton>Let's Talk</StyledButton>
+      </Content>
+      <Ellipse/>
     </Wrapper>
   )
 }
 
-export default CTA
+export default Cta
 
 const Wrapper = styled.section`
   background-color: ${colors.white};
@@ -37,6 +36,10 @@ const Wrapper = styled.section`
   ${ftablet(css`
     height: 1298px;
   `)}
+
+  ${fmobile(css`
+    height: 923px;
+  `)}
 `
 
 const Ellipse = styled.div`
@@ -46,6 +49,7 @@ const Ellipse = styled.div`
   align-items: center;
   justify-content: center;
   position: absolute;
+  z-index: 1;
   top: 50%;
   left: 50%;
   transform-origin: center;
@@ -61,19 +65,33 @@ const Ellipse = styled.div`
     height: 488px;
     border-radius: 1350px / 488px;
   `)}
+
+  ${fmobile(css`
+    width: 1012px;
+    height: 366px;
+    border-radius: 1012px / 366px;
+  `)}
 `
 
 const Content = styled.div`
-  position: relative;
-  transform: rotate(-30deg);
+  position: absolute;
+  z-index: 2;
 
   ${fresponsive(css`
     width: 1400px;
     height: 447px;
+    top: 750px;
   `)}
 
   ${ftablet(css`
     width: 1024px;
+    top: 540px;
+  `)}
+
+  ${fmobile(css`
+    height: 342px;
+    width: 375px;
+    top: 380px;
   `)}
 `
 
@@ -88,6 +106,11 @@ const StyledButton = styled(Button)`
 
   ${ftablet(css`
     left: 411px;
+  `)}
+
+  ${fmobile(css`
+    left: 47px;
+    width: 281px;
   `)}
 `
 
@@ -104,6 +127,13 @@ const Text = styled.span`
 
   ${ftablet(css`
     left: 410px;
+  `)}
+
+  ${fmobile(css`
+    ${text.h6}
+    left: 47px;
+    text-align: center;
+    bottom: 104px;
   `)}
 `
 
@@ -122,6 +152,11 @@ const Title1 = styled.h3`
     left: 203px;
   `)}
 
+  ${fmobile(css`
+    ${text.h4}
+    left: 33px;
+  `)}
+
   &::after {
     font-family: 'Neue Montreal';
     font-style: normal;
@@ -136,6 +171,10 @@ const Title1 = styled.h3`
 
     ${fresponsive(css`
       font-size: 40px;
+    `)}
+
+    ${fmobile(css`
+      font-size: 20px;
     `)}
   }
 `
@@ -154,6 +193,12 @@ const Title2 = styled.h3`
   ${ftablet(css`
     left: 239px;
   `)}
+
+  ${fmobile(css`
+    ${text.d3}
+    left: 54px;
+    top: 87px;
+  `)}
 `
 
 const Kicker = styled.span`
@@ -168,5 +213,9 @@ const Kicker = styled.span`
 
   ${ftablet(css`
     left: 411px;
+  `)}
+
+  ${fmobile(css`
+    left: 130px;
   `)}
 `

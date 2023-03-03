@@ -2,7 +2,7 @@ import React from 'react'
 import styled, { css } from 'styled-components'
 import text from 'styles/text'
 import colors from 'styles/colors'
-import { fresponsive, ftablet } from 'utils/fullyResponsive'
+import { fresponsive, ftablet, fmobile } from 'utils/fullyResponsive'
 import Button from 'components/Button'
 import TempBG from 'images/temp-hero-bg.jpg'
 
@@ -10,7 +10,7 @@ const Hero = () => {
   return (
     <Wrapper>
       <Title>
-        <Span>Creative director</Span>
+        <Span>Visual Designer</Span>
         <Span2>specializing in</Span2>
         <Span3>digital design</Span3>
       </Title>
@@ -40,6 +40,10 @@ const Wrapper = styled.section`
   ${ftablet(css`
     height: 1080px;
   `)}
+
+  ${fmobile(css`
+    height: 950px;
+  `)}
 `
 
 const Title = styled.h1`
@@ -55,6 +59,10 @@ const Title = styled.h1`
   ${ftablet(css`
     top: 350px;
   `)}
+
+  ${fmobile(css`
+    top: 227px;
+  `)}
 `
 
 const Span = styled.span`
@@ -68,6 +76,10 @@ const Span = styled.span`
 
   ${ftablet(css`
     ${text.h3}
+  `)}
+
+  ${fmobile(css`
+    ${text.h4}
   `)}
 `
 
@@ -84,6 +96,11 @@ const Span2 = styled(Span)`
     ${text.d2}
     top: 97px;
   `)}
+
+  ${fmobile(css`
+    ${text.d3}
+    top: 50px;
+  `)}
 `
 
 const Span3 = styled(Span)`
@@ -93,6 +110,10 @@ const Span3 = styled(Span)`
 
   ${ftablet(css`
     top: 194px;
+  `)}
+
+  ${fmobile(css`
+    top: 100px;
   `)}
 `
 
@@ -108,6 +129,13 @@ const PositionedButton = styled(Button)`
     bottom: 104px;
     right: 102px;
   `)}
+
+  ${fmobile(css`
+    bottom: 309px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 281px;
+  `)}
 `
 
 const Motto = styled.div`
@@ -121,9 +149,14 @@ const Motto = styled.div`
     left: 360px;
   `)}
 
-  ${fresponsive(css`
+  ${ftablet(css`
     bottom: 100px;
     left: 102px;
+  `)}
+
+  ${fmobile(css`
+    bottom: 89px;
+    left: 47px;
   `)}
 `
 

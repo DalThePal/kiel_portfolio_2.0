@@ -13,6 +13,8 @@ const Button = ({ className, children }) => {
         <Span>{children}</Span>
         <Span>{children}</Span>
         <Span>{children}</Span>
+        <Span>{children}</Span>
+        <Span>{children}</Span>
       </Inner>
       <Gradient/>
       <Circle>

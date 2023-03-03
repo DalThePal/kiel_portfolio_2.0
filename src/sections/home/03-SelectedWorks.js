@@ -1,6 +1,7 @@
 import React from 'react'
-import styled from 'styled-components'
+import styled, {css} from 'styled-components'
 import Project from 'components/Project'
+import { fmobile } from 'utils/fullyResponsive'
 
 const SelectedWorks = ({ caseStudies }) => {
 
@@ -27,4 +28,9 @@ export default SelectedWorks
 const Wrapper = styled.section`
   display: flex;
   flex-wrap: wrap;
+
+  ${fmobile(css`
+    flex-direction: column;
+    flex-wrap: unset;
+  `)}
 `

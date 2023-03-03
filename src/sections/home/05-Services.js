@@ -1,6 +1,6 @@
 import React from 'react'
 import styled, { css } from 'styled-components'
-import { fresponsive, ftablet } from 'utils/fullyResponsive'
+import { fresponsive, ftablet, fmobile } from 'utils/fullyResponsive'
 
 import colors from 'styles/colors'
 import text from 'styles/text'
@@ -41,7 +41,7 @@ const Services = () => {
         </Text>
         <List>{items}</List>
         <Row>
-          <StyledButton>Let's work together</StyledButton>
+          <StyledButton>Let's Talk</StyledButton>
           <UniversalLink to="/">How We'll Work Together</UniversalLink>
         </Row>
       </Content>
@@ -62,6 +62,10 @@ const Wrapper = styled.section`
   ${ftablet(css`
     height: 1041px;
   `)}
+
+  ${fmobile(css`
+    height: 1342px;
+  `)}
 `
 
 const Title = styled.h2`
@@ -78,6 +82,13 @@ const Title = styled.h2`
     top: 317px;
     left: 93px;
   `)}
+
+  ${fmobile(css`
+    height: 100px;
+    width: 210px;
+    top: 494px;
+    left: 47px;
+  `)}
 `
 
 const Span = styled.span`
@@ -86,6 +97,10 @@ const Span = styled.span`
   top: 0;
   left: 0;
   color: ${colors.black};
+
+  ${fmobile(css`
+    ${text.h4}
+  `)}
 `
 
 const Span2 = styled.span`
@@ -95,6 +110,10 @@ const Span2 = styled.span`
   position: absolute;
   bottom: 0;
   right: 0;
+
+  ${fmobile(css`
+    ${text.d3}
+  `)}
 `
 
 const Content = styled.div`
@@ -113,11 +132,21 @@ const Content = styled.div`
     left: 205px;
     width: 715px;
   `)}
+
+  ${fmobile(css`
+    left: 47px;
+    width: 281px;
+    gap: 0px;
+  `)}
 `
 
 const Text = styled.p`
   ${text.h7}
   color: ${colors.black};
+
+  ${fmobile(css`
+    margin-bottom: 25px;
+  `)}
 `
 
 const List = styled.ul`
@@ -133,6 +162,13 @@ const List = styled.ul`
 
   ${ftablet(css`
     gap: 0px 100px;
+  `)}
+
+  ${fmobile(css`
+    flex-wrap: unset;
+    height: auto;
+    gap: 0px;
+    margin-bottom: 75px;
   `)}
 `
 
@@ -151,6 +187,10 @@ const Item = styled.li`
 
   ${ftablet(css`
     width: 308px;
+  `)}
+
+  ${fmobile(css`
+    width: 100%;
   `)}
 `
 
@@ -174,6 +214,11 @@ const Row = styled.div`
   ${ftablet(css`
     gap: 100px;
   `)}
+
+  ${fmobile(css`
+    flex-direction: column;
+    gap: 40px;
+  `)}
 `
 
 const StyledButton = styled(Button)`
@@ -183,6 +228,10 @@ const StyledButton = styled(Button)`
 
   ${ftablet(css`
     width: 307px;
+  `)}
+
+  ${fmobile(css`
+    width: 100%;
   `)}
 `
 
@@ -199,5 +248,10 @@ const FullService = styled.span`
   ${ftablet(css`
     top: 300px;
     left: 205px;
+  `)}
+
+  ${fmobile(css`
+    left: 94px;
+    top: 474px;
   `)}
 `

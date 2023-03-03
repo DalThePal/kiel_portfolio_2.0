@@ -1,13 +1,12 @@
 import React from "react"
 import styled, { css } from "styled-components"
-import { fresponsive } from "utils/fullyResponsive"
+import { fresponsive, fmobile } from "utils/fullyResponsive"
 import colors from 'styles/colors'
-import text from 'styles/text'
 
 const Header = () => (
   <Wrapper>
     <Ellipse>
-      <BZ>BZ</BZ>
+      <Bz>BZ</Bz>
     </Ellipse>
   </Wrapper>
 )
@@ -42,9 +41,15 @@ const Ellipse = styled.div`
     height: 39px;
     border-radius: 108px / 39px;
   `)}
+
+  ${fmobile(css`
+    width: 73.64px;
+    height: 26.59px;
+    border-radius: 73.64px / 26.59px;
+  `)}
 `
 
-const BZ = styled.span` 
+const Bz = styled.span` 
   transform: rotate(-30deg);
   font-family: 'Neue Montreal';
   font-style: normal;
@@ -52,4 +57,8 @@ const BZ = styled.span`
   font-size: 16px;
   line-height: 110%;
   color: ${colors.black};
+
+  ${fmobile(css`
+    font-size: 10px;
+  `)}
 `

@@ -1,15 +1,15 @@
 import React from 'react'
 import styled, { css } from 'styled-components'
-import {fresponsive} from 'utils/fullyResponsive'
+import {fresponsive, fmobile} from 'utils/fullyResponsive'
 import colors from 'styles/colors'
 import UniversalLink from 'components/UniversalLink'
 
 const Footer = () => {
   return (
     <Wrapper>
-      <UniversalLink to="/">How We'll Work Together</UniversalLink>
-      <Ellipse><BZ>BZ</BZ></Ellipse>
-      <UniversalLink to="/">Contact</UniversalLink>
+      <Link1 to="/">How We'll Work Together</Link1>
+      <Ellipse><Bz>BZ</Bz></Ellipse>
+      <Link2 to="/">Contact</Link2>
     </Wrapper>
   )
 }
@@ -27,6 +27,12 @@ const Wrapper = styled.footer`
   ${fresponsive(css`
     height: 200px;
     padding: 56px 40px;
+  `)}
+
+  ${fmobile(css`
+    height: 247px;
+    flex-direction: column;
+    padding: 25px 0px 50px;
   `)}
 `
 
@@ -47,9 +53,17 @@ const Ellipse = styled.div`
     height: 39px;
     border-radius: 108px / 39px;
   `)}
+
+  ${fmobile(css`
+    position: relative;
+    left: unset;
+    top: unset;
+    transform: rotate(30deg);
+    order: 3;
+  `)}
 `
 
-const BZ = styled.span` 
+const Bz = styled.span` 
   transform: rotate(-30deg);
   font-family: 'Neue Montreal';
   font-style: normal;
@@ -57,4 +71,16 @@ const BZ = styled.span`
   font-size: 16px;
   line-height: 110%;
   color: ${colors.black};
+`
+
+const Link1 = styled(UniversalLink)`
+  ${fmobile(css`
+    order: 1
+  `)}
+`
+
+const Link2 = styled(UniversalLink)`
+  ${fmobile(css`
+    order: 2;
+  `)}
 `

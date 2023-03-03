@@ -6,7 +6,7 @@ import { useStaticQuery, graphql } from 'gatsby'
 import colors from 'styles/colors'
 import text from 'styles/text'
 
-import { fresponsive, ftablet } from 'utils/fullyResponsive'
+import { fresponsive, ftablet, fmobile } from 'utils/fullyResponsive'
 
 const DATA = [
   "Put People First: Design for the humans who will use it, and make their experience top priority.",
@@ -57,6 +57,10 @@ const Wrapper = styled.section`
   ${fresponsive(css`
     height: 1475px;
   `)}
+
+  ${fmobile(css`
+    height: 1986px;
+  `)}
 `
 
 const Headshot = styled(GatsbyImage)`
@@ -72,6 +76,11 @@ const Headshot = styled(GatsbyImage)`
 
   ${ftablet(css`
     width: 613px;
+  `)}
+
+  ${fmobile(css`
+    width: 281px;
+    height: 320px;
   `)}
 `
 
@@ -90,6 +99,11 @@ const Content = styled.div`
   ${ftablet(css`
     width: 819px;
   `)}
+
+  ${fmobile(css`
+    width: 100%;
+    height: 1716px;
+  `)}
 `
 
 const Title = styled.h2`
@@ -98,10 +112,18 @@ const Title = styled.h2`
   color: ${colors.white};
   transform: rotate(90deg) translateY(-100%);
   transform-origin: top left;
+  font-weight: 700;
 
   ${fresponsive(css`
     left: 40px;
     top: 464px;
+  `)}
+
+  ${fmobile(css`
+    ${text.h3}
+    font-weight: 700;
+    top: 15px;
+    left: -40px;
   `)}
 `
 
@@ -120,6 +142,11 @@ const List = styled.ul`
     gap: 112px;
     right: 60px;
   `)}
+
+  ${fmobile(css`
+    gap: 100px;
+    left: 47px;
+  `)}
 `
 
 const Item = styled.li`
@@ -132,6 +159,12 @@ const Item = styled.li`
 
   ${ftablet(css`
     gap: 47px;
+  `)}
+
+  ${fmobile(css`
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 25px;
   `)}
 `
 
@@ -153,6 +186,11 @@ const Text = styled.p`
     ${text.h7}
     width: 350px;
   `)}
+
+  ${fmobile(css`
+    ${text.h7}
+    width: 280px;
+  `)}
 `
 
 const Copywrite = styled.span`
@@ -169,6 +207,13 @@ const Copywrite = styled.span`
   ${ftablet(css`
     right: 43px;
     width: 264px;
+  `)}
+
+  ${fmobile(css`
+    ${text.h7}
+    top: 75px;
+    right: 47px;
+    width: 140px;
   `)}
 
   &::after {
@@ -190,6 +235,11 @@ const Copywrite = styled.span`
     ${ftablet(css`
       right: 4%;
     `)}
+
+    ${fmobile(css`
+      font-size: 25px;
+      right: 10%;
+    `)}
   }
 `
 
@@ -206,5 +256,10 @@ const Means = styled.span`
 
   ${ftablet(css`
     right: 187px;
+  `)}
+
+  ${fmobile(css`
+    top: 437px;
+    right: 47px;
   `)}
 `

@@ -5,7 +5,7 @@ import { Link } from 'gatsby'
 import text from 'styles/text'
 import colors from 'styles/colors'
 
-const UniversalLink = ({ to, external, children }) => {
+const UniversalLink = ({ to, external, children, className }) => {
 
   const props = external ? {
     href: to,
@@ -17,7 +17,7 @@ const UniversalLink = ({ to, external, children }) => {
   }
 
   return (
-    <Wrapper {...props}>
+    <Wrapper {...props} className={className}>
       {children} ↗
     </Wrapper>
   )

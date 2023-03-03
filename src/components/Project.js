@@ -3,7 +3,7 @@ import gsap from 'gsap'
 import styled, { css } from 'styled-components'
 import colors from 'styles/colors'
 import text from 'styles/text'
-import { fresponsive, ftablet } from 'utils/fullyResponsive'
+import { fresponsive, ftablet, fmobile } from 'utils/fullyResponsive'
 import { GatsbyImage } from 'gatsby-plugin-image'
 
 const Project = ({ number, tags, title, image}) => {
@@ -99,6 +99,11 @@ const Wrapper = styled.div`
     height: 560px;
     width: 512px;
   `)}
+
+  ${fmobile(css`
+    width: 100%;
+    height: 543px;
+  `)}
 `
 
 const Num = styled.span`
@@ -129,6 +134,10 @@ const Title = styled.h4`
       ${ftablet(css`
         ${text.h5}
       `)}
+
+      ${fmobile(css`
+        ${text.h6}
+      `)}
     }
   
     &:nth-child(2) {
@@ -137,9 +146,12 @@ const Title = styled.h4`
       ${ftablet(css`
         ${text.d4}
       `)}
+
+      ${fmobile(css`
+        ${text.d5}
+      `)}
     }
   }
-
 `
 
 const Content = styled.div`
@@ -161,6 +173,11 @@ const Content = styled.div`
   ${ftablet(css`
     padding: 50px 102px;
     width: 512px;
+  `)}
+
+  ${fmobile(css`
+    padding: 50px 47px 100px;
+    width: 100%;
   `)}
 `
 
@@ -205,6 +222,10 @@ const Top = styled.div`
   ${ftablet(css`
     gap: 85px;
   `)}
+
+  ${fmobile(css`
+    gap: 77px;
+  `)}
 `
 
 const Bottom = styled.div`
@@ -219,6 +240,10 @@ const Bottom = styled.div`
   ${ftablet(css`
     gap: 30px;
   `)}
+
+  ${fmobile(css`
+    gap: 25px;
+  `)}
 `
 
 const Image = styled(GatsbyImage)`
@@ -230,5 +255,10 @@ const Image = styled(GatsbyImage)`
 
   ${ftablet(css`
     height: 230px;
+  `)}
+
+  ${fmobile(css`
+    width: 281px;
+    height: 210px;
   `)}
 `
