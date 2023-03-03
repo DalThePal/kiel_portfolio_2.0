@@ -4,9 +4,9 @@ import text from 'styles/text'
 import colors from 'styles/colors'
 import { fresponsive, ftablet, fmobile } from 'utils/fullyResponsive'
 import Button from 'components/Button'
-import TempBg from 'images/temp-hero-bg.jpg'
-import TempBgTablet from 'images/tempBg-tablet.jpg'
-import TempBgMobile from 'images/tempBg-mobile.jpg'
+import TempBg from 'images/hero-bg-desktop.jpg'
+import TempBgTablet from 'images/hero-bg-tablet.jpg'
+import TempBgMobile from 'images/hero-bg-mobile.jpg'
 
 const Hero = () => {
   return (
