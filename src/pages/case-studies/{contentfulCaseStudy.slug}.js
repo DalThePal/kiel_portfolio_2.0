@@ -1,6 +1,7 @@
 import React from 'react'
-import Hero from 'sections/case-study/01-Hero'
 import { graphql } from 'gatsby'
+import Hero from 'sections/case-study/01-Hero'
+import Challenge from 'sections/case-study/02-Challenge'
 
 const CaseStudy = ({ data }) => {
   
@@ -15,6 +16,12 @@ const CaseStudy = ({ data }) => {
         image={contentfulCaseStudy.heroImage}
         tags={contentfulCaseStudy.tags}
         color={contentfulCaseStudy.primaryColor}
+      />
+      <Challenge
+        italicText={contentfulCaseStudy.challengeItalicText}
+        text={contentfulCaseStudy.challengeText}
+        image={contentfulCaseStudy.challengeImage}
+        url={contentfulCaseStudy.siteUrl}
       />
     </>
   )
@@ -37,6 +44,12 @@ export const pageQuery = graphql`
       }
       heroText
       heroIndentedText
+      challengeImage {
+        gatsbyImageData
+      }
+      challengeItalicText
+      challengeText
+      siteUrl
     }
   }
 `
