@@ -6,14 +6,22 @@ module.exports = {
     title: `Brandon Zacharias`,
     description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
     author: `Dallen Hoyal`,
-    siteUrl: `https://gatsbystarterdefaultsource.gatsbyjs.io/`,
+    siteUrl: `https://brandonzacharias.com`,
   },
   plugins: [
-    `gatsby-plugin-image`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     'gatsby-plugin-netlify',
     'gatsby-plugin-styled-components',
+    `gatsby-plugin-image`,
+    { 
+      resolve: "gatsby-plugin-image",
+      options: {
+        formats: [`webp`],
+        placeholder: `blurred`,
+        quality: 90
+      }
+    },
     {
       resolve: "gatsby-source-contentful",
       options: {

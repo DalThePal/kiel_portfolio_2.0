@@ -25,7 +25,15 @@ const IndexPage = ({ data }) => {
   )
 }
 
-export const Head = () => <Seo title="Home" />
+export const Head = ({data}) => {
+  return (
+    <Seo
+      title={data.contentfulHomePage.metaTitle}
+      description={data.contentfulHomePage.metaDescription}
+      pathname={"/"}
+    />
+  )
+}
 
 export default IndexPage
 

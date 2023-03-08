@@ -6,11 +6,11 @@ import Exploration from 'sections/case-study/03-Exploration'
 import Solution from 'sections/case-study/04-Solution'
 import Results from 'sections/case-study/05-Results'
 import Marquee from 'sections/case-study/06-Marquee'
+import Seo from 'components/Seo'
 
 const CaseStudy = ({ data }) => {
   
   const { contentfulCaseStudy } = data
-  console.log(contentfulCaseStudy)
 
   return (
     <>
@@ -61,6 +61,16 @@ const CaseStudy = ({ data }) => {
 }
 
 export default CaseStudy
+
+export const Head = ({data}) => {
+  return (
+    <Seo
+      title={data.contentfulCaseStudy.metaTitle}
+      description={data.contentfulCaseStudy.metaDescription}
+      pathname={`/case-studies/${data.contentfulCaseStudy.slug}`}
+    />
+  )
+}
 
 export const pageQuery = graphql`
   query($id: String!) {

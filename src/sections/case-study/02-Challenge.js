@@ -33,7 +33,7 @@ const Challenge = ({
           </Column>
         </Row>
       </Content>
-      <Image image={image.gatsbyImageData}/>
+      <Image image={image.gatsbyImageData} alt={image.description}/>
     </Wrapper>
   )
 }
