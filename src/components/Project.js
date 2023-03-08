@@ -5,9 +5,9 @@ import colors from 'styles/colors'
 import text from 'styles/text'
 import { fresponsive, ftablet, fmobile } from 'utils/fullyResponsive'
 import { GatsbyImage } from 'gatsby-plugin-image'
+import { navigate } from 'gatsby'
 
-const Project = ({ number, tags, title, image}) => {
-
+const Project = ({ number, tags, title, image, slug}) => {
   const blackRef = useRef()
   const whiteRef = useRef()
 
@@ -34,8 +34,12 @@ const Project = ({ number, tags, title, image}) => {
     })
   }
 
+  const handleClick = () => {
+    navigate(`/case-studies/${slug}`)
+  }
+
   return (
-    <Wrapper onMouseEnter={mouseEnter} onMouseLeave={mouseLeave}>
+    <Wrapper onMouseEnter={mouseEnter} onMouseLeave={mouseLeave} onClick={handleClick}>
       <Black ref={blackRef}>
         <Content>
           <Top>
@@ -81,6 +85,7 @@ const Wrapper = styled.div`
   border-color: ${colors.black};
   box-sizing: border-box;
   overflow: hidden;
+  cursor: pointer;
 
   &:nth-of-type(even) {
     border-left-width: 0.5px;

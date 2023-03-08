@@ -11,6 +11,7 @@ const SelectedWorks = ({ caseStudies }) => {
         number={index + 1}
         title={item.title}
         tags={item.tags}
+        slug={item.slug}
         image={item.featuredImage}
       />
     )

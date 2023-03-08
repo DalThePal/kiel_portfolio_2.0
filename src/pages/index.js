@@ -45,6 +45,7 @@ export const pageQuery = graphql`
       featuredCaseStudies {
         title
         tags
+        slug
         featuredImage {
           gatsbyImageData(
             placeholder: BLURRED
