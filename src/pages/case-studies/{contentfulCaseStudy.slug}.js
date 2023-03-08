@@ -3,6 +3,7 @@ import { graphql } from 'gatsby'
 import Hero from 'sections/case-study/01-Hero'
 import Challenge from 'sections/case-study/02-Challenge'
 import Exploration from 'sections/case-study/03-Exploration'
+import Solution from 'sections/case-study/04-Solution'
 
 const CaseStudy = ({ data }) => {
   
@@ -32,6 +33,14 @@ const CaseStudy = ({ data }) => {
         image4={contentfulCaseStudy.explorationImage4}
         image5={contentfulCaseStudy.explorationImage5}
         image6={contentfulCaseStudy.explorationImage6}
+      />
+      <Solution
+        text1={contentfulCaseStudy.solutionText1}
+        italicText={contentfulCaseStudy.solutionItalicText}
+        text2={contentfulCaseStudy.solutionText2}
+        image1={contentfulCaseStudy.solutionImage1}
+        image2={contentfulCaseStudy.solutionImage2}
+        image3={contentfulCaseStudy.solutionImage3}
       />
     </>
   )
@@ -77,6 +86,18 @@ export const pageQuery = graphql`
         gatsbyImageData
       }
       explorationImage6 {
+        gatsbyImageData
+      }
+      solutionText1
+      solutionItalicText
+      solutionText2
+      solutionImage1 {
+        gatsbyImageData
+      }
+      solutionImage2 {
+        gatsbyImageData
+      }
+      solutionImage3 {
         gatsbyImageData
       }
     }
