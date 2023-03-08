@@ -5,9 +5,9 @@ import text from 'styles/text'
 import colors from 'styles/colors'
 import { ReactComponent as ArrowSVG } from 'images/arrow.svg'
 
-const Button = ({ className, children }) => {
+const Button = ({ className, children, onClick }) => {
   return (
-    <Wrapper className={className}>
+    <Wrapper className={className} onClick={onClick}>
       <Inner>
         <Span>{children}</Span>
         <Span>{children}</Span>
