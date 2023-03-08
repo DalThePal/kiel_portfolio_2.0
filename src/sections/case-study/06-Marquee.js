@@ -9,17 +9,17 @@ const Marquee = () => {
   return (
     <Wrapper>
       <Inner>
-        <Text>selected works</Text>
+        <Text>Next Case</Text>
         <Arrow/>
-        <Text>selected works</Text>
+        <Text>Next Case</Text>
         <Arrow/>
-        <Text>selected works</Text>
+        <Text>Next Case</Text>
         <Arrow/>
-        <Text>selected works</Text>
+        <Text>Next Case</Text>
         <Arrow/>
-        <Text>selected works</Text>
+        <Text>Next Case</Text>
         <Arrow/>
-        <Text>selected works</Text>
+        <Text>Next Case</Text>
         <Arrow/>
       </Inner>
     </Wrapper>
@@ -42,6 +42,8 @@ const Wrapper = styled.section`
   overflow: hidden;
   width: 100%;
   background-color: ${colors.white};
+  border-top: 1px solid ${colors.black};
+  border-bottom: 1px solid ${colors.black};
 
   ${fresponsive(css`
     height: 287px;

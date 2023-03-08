@@ -5,6 +5,7 @@ import Challenge from 'sections/case-study/02-Challenge'
 import Exploration from 'sections/case-study/03-Exploration'
 import Solution from 'sections/case-study/04-Solution'
 import Results from 'sections/case-study/05-Results'
+import Marquee from 'sections/case-study/06-Marquee'
 
 const CaseStudy = ({ data }) => {
   
@@ -54,6 +55,7 @@ const CaseStudy = ({ data }) => {
         image4={contentfulCaseStudy.resultsImage4}
         image5={contentfulCaseStudy.resultsImage5}
       />
+      <Marquee/>
     </>
   )
 }
