@@ -41,36 +41,28 @@ const Challenge = ({
 export default Challenge
 
 const Wrapper = styled.section`
-  position: relative;
   background-color: ${colors.black};
+  display: flex;
+  flex-direction: column;
 
   ${fresponsive(css`
-    height: 1537px;
+    padding: 150px 240px 0px;
+    gap: 75px;
   `)}
 `
 
 const Content = styled.div`
-  position: absolute;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-
-  ${fresponsive(css`
-    width: 1200px;
-    padding: 0px 120px;
-    left: 120px;
-    top: 150px;
-  `)}
+  width: 100%;
 `
 
 const Image = styled(GatsbyImage)`
-  position: absolute !important;
+  width: 100%;
 
   ${fresponsive(css`
-    width: 1200px;
     height: 799px;
-    left: 120px;
-    bottom: 150px;
   `)}
 `
 

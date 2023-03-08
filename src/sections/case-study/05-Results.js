@@ -43,7 +43,6 @@ const Results = ({
 export default Results
 
 const Wrapper = styled.section`
-  position: relative;
   display: flex;
   flex-direction: column;
   background-color: ${colors.white};

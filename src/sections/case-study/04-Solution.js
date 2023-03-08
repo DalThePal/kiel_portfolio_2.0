@@ -27,9 +27,11 @@ const Solution = ({
           </Column>
         </Row>
       </Content>
-      <Image1 image={image1.gatsbyImageData} alt={image1.description}/>
-      <Image2 image={image2.gatsbyImageData} alt={image2.description}/>
-      <Image3 image={image3.gatsbyImageData} alt={image3.description}/>
+      <Images>
+        <Image1 image={image1.gatsbyImageData} alt={image1.description}/>
+        <Image2 image={image2.gatsbyImageData} alt={image2.description}/>
+        <Image3 image={image3.gatsbyImageData} alt={image3.description}/>
+      </Images>
     </Wrapper>
   )
 }
@@ -37,26 +39,21 @@ const Solution = ({
 export default Solution
 
 const Wrapper = styled.section`
-  position: relative;
   background-color: ${colors.white};
+  display: flex;
+  flex-direction: column;
 
   ${fresponsive(css`
-    height: 1310px;
+    padding: 150px 240px 0px;
+    gap: 75px;
   `)}
 `
 
 const Content = styled.div`
-  position: absolute;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-
-  ${fresponsive(css`
-    width: 1200px;
-    padding: 0px 120px;
-    left: 120px;
-    top: 150px;
-  `)}
+  width: 100%;
 `
 
 const Num = styled.span`
@@ -120,6 +117,15 @@ const Text = styled.p`
   `)}
 `
 
+const Images = styled.div`
+  position: relative;
+  width: 100%;
+
+  ${fresponsive(css`
+    height: 700px;
+  `)}
+`
+
 const Image = styled(GatsbyImage)`
   position: absolute !important;
 `
@@ -130,7 +136,8 @@ const Image1 = styled(Image)`
   ${fresponsive(css`
     width: 455px;
     height: 700px;
-    left: 240px;
+    left: 0px;
+    top: 0px;
   `)}
 `
 
@@ -138,8 +145,8 @@ const Image2 = styled(Image)`
   ${fresponsive(css`
     width: 455px;
     height: 325px;
-    right: 240px;
-    bottom: 375px;
+    right: 0px;
+    top: 0px;
   `)}
 `
 
@@ -147,7 +154,7 @@ const Image3 = styled(Image)`
   ${fresponsive(css`
     width: 455px;
     height: 325px;
-    right: 240px;
+    right: 0px;
     bottom: 0px;
   `)}
 `
