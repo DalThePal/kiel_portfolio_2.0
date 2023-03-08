@@ -18,7 +18,7 @@ module.exports = {
       resolve: "gatsby-plugin-image",
       options: {
         formats: [`webp`],
-        placeholder: `blurred`,
+        placeholder: `BLURRED`,
         quality: 90
       }
     },
