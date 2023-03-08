@@ -1,57 +1,23 @@
-import * as React from "react"
-import { graphql } from 'gatsby'
-
+import React from "react"
 import Seo from "components/Seo"
-
 import Hero from 'sections/home/01-Hero'
-import Marquee from "sections/home/02-Marquee"
-import SelectedWorks from 'sections/home/03-SelectedWorks'
-import Manifesto from "sections/home/04-Manifesto"
-import Services from 'sections/home/05-Services'
-import Cta from 'sections/home/06-CTA'
 
-const IndexPage = ({ data }) => {
+const IndexPage = () => {
   return (
     <>
       <Hero/>
-      <Marquee/>
-      <SelectedWorks
-        caseStudies={data.contentfulHomePage.featuredCaseStudies}
-      />
-      <Manifesto/>
-      <Services/>
-      <Cta/>
     </>
   )
 }
 
-export const Head = ({data}) => {
+export const Head = () => {
   return (
     <Seo
-      title={data.contentfulHomePage.metaTitle}
-      description={data.contentfulHomePage.metaDescription}
-      pathname={"/"}
+      title="Kiel Cummings"
+      description="Kiel Cumming Portfolio"
+      pathname="/"
     />
   )
 }
 
 export default IndexPage
-
-export const pageQuery = graphql`
-  query HomePageQuery {
-    contentfulHomePage {
-      metaTitle
-      metaDescription
-      featuredCaseStudies {
-        title
-        tags
-        slug
-        featuredImage {
-          gatsbyImageData(
-            placeholder: BLURRED
-          )
-        }
-      }
-    } 
-  }
-`

@@ -2,9 +2,6 @@ import React from 'react'
 import styled from 'styled-components'
 import { Link } from 'gatsby'
 
-import text from 'styles/text'
-import colors from 'styles/colors'
-
 const UniversalLink = ({ to, external, children, className }) => {
 
   const props = external ? {
@@ -26,7 +23,5 @@ const UniversalLink = ({ to, external, children, className }) => {
 export default UniversalLink
 
 const Wrapper = styled.a`
-  ${text.button}
-  color: ${colors.black};
   cursor: pointer;
 `

@@ -3,10 +3,10 @@ const path = require('path')
 
 module.exports = {
   siteMetadata: {
-    title: `Brandon Zacharias`,
+    title: `Kiel Cummings`,
     description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
     author: `Dallen Hoyal`,
-    siteUrl: `https://brandonzacharias.com`,
+    siteUrl: `https://kielcummings.com`,
   },
   plugins: [
     `gatsby-transformer-sharp`,
@@ -21,13 +21,6 @@ module.exports = {
         placeholder: `BLURRED`,
         quality: 90
       }
-    },
-    {
-      resolve: "gatsby-source-contentful",
-      options: {
-        accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
-        spaceId: process.env.CONTENTFUL_SPACE_ID,
-      },
     },
     {
       resolve: `gatsby-source-filesystem`,

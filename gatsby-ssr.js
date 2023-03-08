@@ -1,6 +1,5 @@
 import React from 'react'
 import Layout from 'components/Layout'
-import "styles/fonts/typography.css"
 import "the-new-css-reset/css/reset.css"
 import 'styles/reset.css'
 

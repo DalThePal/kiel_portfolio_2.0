@@ -1,6 +1,6 @@
 const colors = {
-  white: "#F2F2F2",
-  black: "#1A1A1A"
+  tan: "#D0CCBF",
+  black: "#000000"
 }
 
 export default colors
