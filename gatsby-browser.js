@@ -5,6 +5,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { ScrollSmoother } from 'gsap/ScrollSmoother'
 import "the-new-css-reset/css/reset.css"
 import 'styles/reset.css'
+import 'styles/fonts/typography.css'
 
 gsap.registerPlugin(
   ScrollTrigger, 
