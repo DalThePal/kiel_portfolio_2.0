@@ -45,13 +45,6 @@ export default function Graphics({ wrapper }) {
 
   const mouseLeave = useCallback(() => {
     setUpdateImageOn(false)
-
-    // hide images when mouse leaves section
-    gsap.to(".graphic", {
-      opacity: 0,
-      duration: 0.25,
-      overwrite: true
-    })
   }, [setUpdateImageOn])
 
   const updateImagePosition = useCallback(() => {
