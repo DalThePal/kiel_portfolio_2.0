@@ -10,23 +10,24 @@ module.exports = {
   },
   plugins: [
     `gatsby-transformer-sharp`,
-    `gatsby-plugin-sharp`,
     'gatsby-plugin-netlify',
     'gatsby-plugin-styled-components',
     `gatsby-plugin-image`,
-    { 
-      resolve: "gatsby-plugin-image",
+    {
+      resolve: "gatsby-plugin-sharp",
       options: {
-        formats: [`webp`],
-        placeholder: `BLURRED`,
-        quality: 90
-      }
+        defaults: {
+          formats: ["webp"],
+          placeholder: "blurred",
+          quality: 90,
+        },
+      },
     },
     {
-      resolve: `gatsby-source-filesystem`,
+      resolve: "gatsby-source-filesystem",
       options: {
-        name: `images`,
-        path: `${__dirname}/src/images`,
+        name: "images",
+        path: path.join(__dirname, "src", "images"),
       },
     },
     {
