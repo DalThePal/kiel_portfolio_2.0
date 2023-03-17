@@ -1,4 +1,4 @@
-import React, { useEffect, useCallback, useRef, useState, useMemo } from "react"
+import React, { useEffect, useCallback, useRef, useState } from "react"
 import { useStaticQuery, graphql } from "gatsby"
 import { GatsbyImage } from "gatsby-plugin-image"
 import gsap from "gsap"
@@ -9,7 +9,7 @@ const IMAGE_SPACING = 250
 
 export default function Graphics({ wrapper }) {
   const [updateImageOn, setUpdateImageOn] = useState(false)
-  const awardIndex = useRef(0)
+  const graphicIndex = useRef(0)
   const mouseCoord = useRef({ x: 0, y: 0 })
   const mouseDir = useRef({ x: 1, y: 1 })
 
@@ -51,8 +51,8 @@ export default function Graphics({ wrapper }) {
     const { x, y } = mouseCoord.current
     const length = 12
 
-    const currentImage = `.graphic-wrapper-${awardIndex.current}`
-    const currentImageChild = `.graphic-child-${awardIndex.current}`
+    const currentImage = `.graphic-wrapper-${graphicIndex.current}`
+    const currentImageChild = `.graphic-child-${graphicIndex.current}`
 
     const rotation = getRandomInt(-30, 30)
 
@@ -108,8 +108,6 @@ export default function Graphics({ wrapper }) {
       if (updateImageOn && wrapper) {
         const { clientX, clientY } = e
         const { x, y } = mouseCoord.current
-        const wrapperY = wrapper.getBoundingClientRect().y
-        const newY = clientY - wrapperY
         let update = false // only update if there is spacing for images
 
         // get mouse direction
@@ -121,17 +119,17 @@ export default function Graphics({ wrapper }) {
           mouseCoord.current.x = clientX
           update = true
         }
-        if (newY > y + IMAGE_SPACING || newY < y - IMAGE_SPACING) {
-          mouseCoord.current.y = newY
+        if (clientY > y + IMAGE_SPACING || clientY < y - IMAGE_SPACING) {
+          mouseCoord.current.y = clientY
           update = true
         }
 
         if (update) {
           const length = 12
-          if (awardIndex.current === length - 1) {
-            awardIndex.current = 0
+          if (graphicIndex.current === length - 1) {
+            graphicIndex.current = 0
           } else {
-            awardIndex.current += 1
+            graphicIndex.current += 1
           }
           updateImagePosition()
         }
@@ -217,6 +215,8 @@ const ImageWrapper = styled.div`
   height: ${props => props.height}px;
   top: 0;
   left: 0;
+  transform-origin: center center;
+  transform: translate(-50%, -50%);
 `
 
 const Image = styled(GatsbyImage)`

@@ -7,8 +7,8 @@ import Scroll from 'components/Scroll'
 const Layout = ({ children }) => {
   return (
     <Wrapper>
+      <Header />
       <Scroll>
-        <Header />
         {children}
         <Footer/>
       </Scroll>
