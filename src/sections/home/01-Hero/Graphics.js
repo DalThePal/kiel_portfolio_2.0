@@ -5,7 +5,7 @@ import gsap from "gsap"
 import styled from "styled-components"
 import { getRandomInt } from "utils/functions"
 
-const IMAGE_SPACING = 250
+const IMAGE_SPACING = 150
 
 export default function Graphics({ wrapper }) {
   const [updateImageOn, setUpdateImageOn] = useState(false)
@@ -72,7 +72,7 @@ export default function Graphics({ wrapper }) {
     }, 0)
 
     tl.set(currentImageChild, {
-      y: '100%',
+      opacity: 0,
       overwrite: true
     }, 0)
 
@@ -82,24 +82,24 @@ export default function Graphics({ wrapper }) {
     }, 0)
 
     tl.fromTo(currentImageChild, {
-      y: '100%',
-      scale: 1
+      opacity: 0,
+      scale: 0.5
     }, {
-      duration: 0.8,
-      scale: 0.9,
-      y: '0%',
+      duration: 0.6,
+      scale: 1,
+      opacity: 1,
       ease: "power2.out"
     }, 0.1)
 
     tl.fromTo(currentImageChild, {
-      y: '0%',
-      scale: 0.9
+      opacity: 1,
+      scale: 1
     }, {
-      duration: 0.8,
-      scale: 1,
-      y: '100%',
+      duration: 0.6,
+      scale: 0.5,
+      opacity: 0,
       ease: "power2.in"
-    }, 0.9)
+    }, 0.7)
 
   }, [images])
 
@@ -223,5 +223,5 @@ const Image = styled(GatsbyImage)`
   position: absolute !important;
   width: 100%;
   height: 100%;
-  transform: translateY(100%);
+  opacity: 0;
 `
