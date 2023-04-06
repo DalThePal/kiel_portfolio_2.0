@@ -46,7 +46,7 @@ const Header = () => {
           <Links>
             <MenuLink>AntiSocial Agency</MenuLink>
             <MenuLink>Adobe Consonant</MenuLink>
-            <MenuLink>Starbucks INclusive Design</MenuLink>
+            <MenuLink>Jasper.ai</MenuLink>
             <MenuLink>Dallen Hoyal</MenuLink>
             <MenuLink>Lemond Cycles</MenuLink>
             <MenuLink>Source 7</MenuLink>
@@ -123,8 +123,7 @@ const Links = styled.div`
   align-items: center;
   position: absolute;
   width: 100%;
-  
-  ${fresponsive(css`
-    top: 220px;
-  `)}
+  top: 55%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 `

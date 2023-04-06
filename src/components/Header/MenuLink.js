@@ -65,7 +65,10 @@ const Wrapper = styled.div`
   position: relative;
   perspective: 800px;
   width: 65%;
-  height: 110px;
+
+  ${fresponsive(css`
+    height: 120px;
+  `)}
 `
 
 const Inner = styled.div`
@@ -75,9 +78,9 @@ const Inner = styled.div`
   width: 100%;
   height: 100%;
   transform-style: preserve-3d;
-  transform-origin: 50% 50% 0%;
 
   ${fresponsive(css`
+    transform-origin: 50% 50% -5px;
     .front {
       transform: translateZ(60px);
     }
@@ -100,12 +103,15 @@ const Inner = styled.div`
 const Child = styled.div`
   position: absolute;
   width: 100%;
-  height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
   box-sizing: border-box;
   backface-visibility: hidden;
+
+  ${fresponsive(css`
+    height: 120px;
+  `)}
 `;
 
 const Span1 = styled.span`

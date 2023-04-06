@@ -10,22 +10,24 @@ const Hero = () => {
   const [wrapperEl, setWrapperEl] = useState(null)
 
   return (
-    <Wrapper ref={ref => setWrapperEl(ref)}>
-      <SubTitle>Digital Storyteller. Creative Problem Solver. Experience Activist. Ui Composer. Trend Disrupter.</SubTitle>
-      <Title>Kiel Cummings</Title>
-      <Row>
-        <Text>
-          <span>forging creative transformation through web &</span>
-          <span>digital product design solutions.</span>
-        </Text>
-        <Text2>
-          <span>SALT LAKE CITY</span>
-          <span>UTAH</span>
-        </Text2>
-      </Row>
-      <Graphics
-        wrapper={wrapperEl}
-      />
+    <Wrapper ref={ref => setWrapperEl(ref)}>\
+      <Inner>
+        <SubTitle>Digital Storyteller. Creative Problem Solver. Experience Activist. Ui Composer. Trend Disrupter.</SubTitle>
+        <Title>Kiel Cummings</Title>
+        <Row>
+          <Text>
+            <span>forging creative transformation through web &</span>
+            <span>digital product design solutions.</span>
+          </Text>
+          <Text2>
+            <span>SALT LAKE CITY</span>
+            <span>UTAH</span>
+          </Text2>
+        </Row>
+        <Graphics
+          wrapper={wrapperEl}
+        />
+      </Inner>
     </Wrapper>
   )
 }
@@ -34,15 +36,25 @@ export default Hero
 
 const Wrapper = styled.section`
   position: relative;
-  background-color: ${colors.tan};
+  z-index: 3;
+  width: 100%;
+  height: 100vh;
+`
+
+const Inner = styled.div`
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
+  height: 100%;
 
   ${fresponsive(css`
-    height: 1080px;
-    padding: 291px 319px 315px;
+    width: 1281px;
+    height: 474px;
   `)}
 `
 
