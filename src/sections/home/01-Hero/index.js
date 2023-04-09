@@ -24,10 +24,10 @@ const Hero = () => {
             <span>UTAH</span>
           </Text2>
         </Row>
-        <Graphics
-          wrapper={wrapperEl}
-        />
       </Inner>
+      <Graphics
+        wrapper={wrapperEl}
+      />
     </Wrapper>
   )
 }

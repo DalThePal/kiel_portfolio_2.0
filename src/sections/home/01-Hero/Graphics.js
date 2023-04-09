@@ -49,10 +49,10 @@ export default function Graphics({ wrapper }) {
 
   const updateImagePosition = useCallback(() => {
     const { x, y } = mouseCoord.current
-    const length = 12
+    console.log(x, y)
+    const length = 16
 
-    const currentImage = `.graphic-wrapper-${graphicIndex.current}`
-    const currentImageChild = `.graphic-child-${graphicIndex.current}`
+    const currentImage = `.graphic-${graphicIndex.current}`
 
     const rotation = getRandomInt(-30, 30)
 
@@ -60,28 +60,16 @@ export default function Graphics({ wrapper }) {
       autoRemoveChildren: true,
     })
 
-    tl.set(".graphic", {
-      zIndex: "-=1",
-      opacity: 1
-    }, 0)
-
     tl.set(currentImage, {
-      zIndex: length,
+      zIndex: "20-=1",
       rotate: rotation,
       overwrite: true,
-    }, 0)
-
-    tl.set(currentImageChild, {
       opacity: 0,
-      overwrite: true
+      x,
+      y,
     }, 0)
 
-    tl.set(currentImage, {
-      left: x,
-      top: y,
-    }, 0)
-
-    tl.fromTo(currentImageChild, {
+    tl.fromTo(currentImage, {
       opacity: 0,
       scale: 0.5
     }, {
@@ -91,7 +79,7 @@ export default function Graphics({ wrapper }) {
       ease: "power2.out"
     }, 0.1)
 
-    tl.fromTo(currentImageChild, {
+    tl.fromTo(currentImage, {
       opacity: 1,
       scale: 1
     }, {
@@ -107,6 +95,7 @@ export default function Graphics({ wrapper }) {
     (e) => {
       if (updateImageOn && wrapper) {
         const { clientX, clientY } = e
+        console.log(clientX, clientY)
         const { x, y } = mouseCoord.current
         let update = false // only update if there is spacing for images
 
@@ -125,7 +114,7 @@ export default function Graphics({ wrapper }) {
         }
 
         if (update) {
-          const length = 12
+          const length = 16
           if (graphicIndex.current === length - 1) {
             graphicIndex.current = 0
           } else {
@@ -155,73 +144,33 @@ export default function Graphics({ wrapper }) {
 
   return (
     <>
-      {images.nineThree?.childImageSharp?.gatsbyImageData && <ImageWrapper className="graphic graphic-wrapper-0" width={266} height={115}>
-        <Image image={images.nineThree.childImageSharp.gatsbyImageData} className="graphic-child-0"/>
-      </ImageWrapper>}
-      {images.flower?.childImageSharp?.gatsbyImageData && <ImageWrapper className="graphic graphic-wrapper-1" width={134} height={132}>
-        <Image image={images.flower.childImageSharp.gatsbyImageData} className="graphic-child-1"/>
-      </ImageWrapper>}
-      {images.star?.childImageSharp?.gatsbyImageData && <ImageWrapper className="graphic graphic-wrapper-2" width={95} height={140}>
-        <Image image={images.star.childImageSharp.gatsbyImageData} className="graphic-child-2"/>
-      </ImageWrapper>}
-      {images.gifGod?.childImageSharp?.gatsbyImageData && <ImageWrapper className="graphic graphic-wrapper-3" width={257} height={201}>
-        <Image image={images.gifGod.childImageSharp.gatsbyImageData} className="graphic-child-3"/>
-      </ImageWrapper>}
-      {images.nineThree?.childImageSharp?.gatsbyImageData && <ImageWrapper className="graphic graphic-wrapper-4" width={266} height={115}>
-        <Image image={images.nineThree.childImageSharp.gatsbyImageData} className="graphic-child-4"/>
-      </ImageWrapper>}
-      {images.flower?.childImageSharp?.gatsbyImageData && <ImageWrapper className="graphic graphic-wrapper-5" width={134} height={132}>
-        <Image image={images.flower.childImageSharp.gatsbyImageData} className="graphic-child-5"/>
-      </ImageWrapper>}
-      {images.star?.childImageSharp?.gatsbyImageData && <ImageWrapper className="graphic graphic-wrapper-6" width={95} height={140}>
-        <Image image={images.star.childImageSharp.gatsbyImageData} className="graphic-child-6"/>
-      </ImageWrapper>}
-      {images.gifGod?.childImageSharp?.gatsbyImageData && <ImageWrapper className="graphic graphic-wrapper-7" width={257} height={201}>
-        <Image image={images.gifGod.childImageSharp.gatsbyImageData} className="graphic-child-7"/>
-      </ImageWrapper>}
-      {images.nineThree?.childImageSharp?.gatsbyImageData && <ImageWrapper className="graphic graphic-wrapper-8" width={266} height={115}>
-        <Image image={images.nineThree.childImageSharp.gatsbyImageData} className="graphic-child-8"/>
-      </ImageWrapper>}
-      {images.flower?.childImageSharp?.gatsbyImageData && <ImageWrapper className="graphic graphic-wrapper-9" width={134} height={132}>
-        <Image image={images.flower.childImageSharp.gatsbyImageData} className="graphic-child-9"/>
-      </ImageWrapper>}
-      {images.star?.childImageSharp?.gatsbyImageData && <ImageWrapper className="graphic graphic-wrapper-10" width={95} height={140}>
-        <Image image={images.star.childImageSharp.gatsbyImageData} className="graphic-child-10"/>
-      </ImageWrapper>}
-      {images.gifGod?.childImageSharp?.gatsbyImageData && <ImageWrapper className="graphic graphic-wrapper-11" width={257} height={201}>
-        <Image image={images.gifGod.childImageSharp.gatsbyImageData} className="graphic-child-11"/>
-      </ImageWrapper>}
-      {images.nineThree?.childImageSharp?.gatsbyImageData && <ImageWrapper className="graphic graphic-wrapper-4" width={266} height={115}>
-        <Image image={images.nineThree.childImageSharp.gatsbyImageData} className="graphic-child-4"/>
-      </ImageWrapper>}
-      {images.flower?.childImageSharp?.gatsbyImageData && <ImageWrapper className="graphic graphic-wrapper-5" width={134} height={132}>
-        <Image image={images.flower.childImageSharp.gatsbyImageData} className="graphic-child-5"/>
-      </ImageWrapper>}
-      {images.star?.childImageSharp?.gatsbyImageData && <ImageWrapper className="graphic graphic-wrapper-6" width={95} height={140}>
-        <Image image={images.star.childImageSharp.gatsbyImageData} className="graphic-child-6"/>
-      </ImageWrapper>}
-      {images.gifGod?.childImageSharp?.gatsbyImageData && <ImageWrapper className="graphic graphic-wrapper-7" width={257} height={201}>
-        <Image image={images.gifGod.childImageSharp.gatsbyImageData} className="graphic-child-7"/>
-      </ImageWrapper>}
+      {images.nineThree?.childImageSharp?.gatsbyImageData && <Image image={images.nineThree.childImageSharp.gatsbyImageData} className="graphic graphic-0" width={266} height={115}/>}
+      {images.flower?.childImageSharp?.gatsbyImageData && <Image image={images.flower.childImageSharp.gatsbyImageData} className="graphic graphic-1" width={134} height={132}/>}
+      {images.star?.childImageSharp?.gatsbyImageData && <Image image={images.star.childImageSharp.gatsbyImageData} className="graphic graphic-2" width={95} height={140}/>}
+      {images.gifGod?.childImageSharp?.gatsbyImageData && <Image image={images.gifGod.childImageSharp.gatsbyImageData} className="graphic graphic-3" width={257} height={201}/>}
+      {images.nineThree?.childImageSharp?.gatsbyImageData && <Image image={images.nineThree.childImageSharp.gatsbyImageData} className="graphic graphic-4" width={266} height={115}/>}
+      {images.flower?.childImageSharp?.gatsbyImageData && <Image image={images.flower.childImageSharp.gatsbyImageData} className="graphic graphic-5" width={134} height={132}/>}
+      {images.star?.childImageSharp?.gatsbyImageData && <Image image={images.star.childImageSharp.gatsbyImageData} className="graphic graphic-6" width={95} height={140}/>}
+      {images.gifGod?.childImageSharp?.gatsbyImageData && <Image image={images.gifGod.childImageSharp.gatsbyImageData} className="graphic graphic-7" width={257} height={201}/>}
+      {images.nineThree?.childImageSharp?.gatsbyImageData && <Image image={images.nineThree.childImageSharp.gatsbyImageData} className="graphic graphic-8" width={266} height={115}/>}
+      {images.flower?.childImageSharp?.gatsbyImageData && <Image image={images.flower.childImageSharp.gatsbyImageData} className="graphic graphic-9" width={134} height={132}/>}
+      {images.star?.childImageSharp?.gatsbyImageData && <Image image={images.star.childImageSharp.gatsbyImageData} className="graphic graphic-10" width={95} height={140}/>}
+      {images.gifGod?.childImageSharp?.gatsbyImageData && <Image image={images.gifGod.childImageSharp.gatsbyImageData} className="graphic graphic-11" width={257} height={201}/>}
+      {images.nineThree?.childImageSharp?.gatsbyImageData && <Image image={images.nineThree.childImageSharp.gatsbyImageData} className="graphic graphic-12" width={266} height={115}/>}
+      {images.flower?.childImageSharp?.gatsbyImageData && <Image image={images.flower.childImageSharp.gatsbyImageData} className="graphic graphic-13" width={134} height={132}/>}
+      {images.star?.childImageSharp?.gatsbyImageData && <Image image={images.star.childImageSharp.gatsbyImageData} className="graphic graphic-14" width={95} height={140}/>}
+      {images.gifGod?.childImageSharp?.gatsbyImageData && <Image image={images.gifGod.childImageSharp.gatsbyImageData} className="graphic graphic-15" width={257} height={201}/>}
     </>
   )
 }
 
-const ImageWrapper = styled.div`
-  position: absolute;
-  overflow: hidden;
+const Image = styled(GatsbyImage)`
   pointer-events: none;
+  position: absolute !important;
   width: ${props => props.width}px;
   height: ${props => props.height}px;
+  opacity: 0;
   top: 0;
   left: 0;
   transform-origin: center center;
-  transform: translate(-50%, -50%);
-`
-
-const Image = styled(GatsbyImage)`
-  position: absolute !important;
-  width: 100%;
-  height: 100%;
-  opacity: 0;
 `

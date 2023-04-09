@@ -185,13 +185,16 @@ const Inner = styled.div`
 `
 
 const Title = styled.h2`
-  position: relative;
+  position: absolute;
   z-index: 2;
   ${text.h1}
   color: ${colors.tan};
   mix-blend-mode: difference;
-
+  left: 50%;
+  
   ${fresponsive(css`
+    top: 50%;
+    transform: translate(-50%, -40%);
     font-size: 870px;
   `)}
 `
