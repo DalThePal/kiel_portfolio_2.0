@@ -6,12 +6,45 @@ import text from 'styles/text'
 import gsap from 'gsap'
 import { desktopDesignSize } from 'styles/media'
 import { pxToVw, vwToPx, getMedia } from 'utils/functions'
+import { useStaticQuery, graphql } from 'gatsby'
+import { GatsbyImage } from 'gatsby-plugin-image'
 
 const Work = () => {
 
   const [wrapperEl, setWrapperEl] = useState(null)
   const [innerEl, setInnerEl] = useState(null)
   const [backgroundEl, setBackgroundEl] = useState(null)
+  const [titleEl, setTitleEl] = useState(null)
+
+  const Images = useStaticQuery(graphql`
+    query {
+      antiSocial: file(relativePath: {eq: "anti-social-case-study.jpg"}) {
+        childImageSharp {
+          gatsbyImageData
+        }
+      }
+      dallenHoyal: file(relativePath: {eq: "dallen-hoyal-case-study.jpg"}) {
+        childImageSharp {
+          gatsbyImageData
+        }
+      }
+      idk: file(relativePath: {eq: "idk-case-study.jpg"}) {
+        childImageSharp {
+          gatsbyImageData
+        }
+      }
+      lemond: file(relativePath: {eq: "lemond-case-study.jpg"}) {
+        childImageSharp {
+          gatsbyImageData
+        }
+      }
+      source7: file(relativePath: {eq: "source-7-case-study.jpg"}) {
+        childImageSharp {
+          gatsbyImageData
+        }
+      }
+    }
+  `)
 
   useEffect(() => {
     if (wrapperEl && innerEl) {
@@ -34,6 +67,10 @@ const Work = () => {
         }
       })
 
+      tl.to('.case-study-card', {
+        y: vwToPx(pxToVw(-4300, desktopDesignSize))
+      }, 0)
+
       return () => {
         tl.kill()
       }
@@ -41,7 +78,7 @@ const Work = () => {
   }, [wrapperEl, innerEl])
 
   useEffect(() => {
-    if (wrapperEl && backgroundEl) {
+    if (wrapperEl && backgroundEl && titleEl) {
 
       const sections = backgroundEl.getElementsByClassName('bg-section')
 
@@ -85,11 +122,16 @@ const Work = () => {
         height: (window.innerHeight * 1.6) / 8 + 5
       }, 0)
 
+      tl.set(titleEl, {
+        color: colors.tan,
+        mixBlendMode: 'unset'
+      }, 1)
+
       return () => {
         tl.kill()
       }
     }
-  }, [wrapperEl, backgroundEl])
+  }, [wrapperEl, backgroundEl, titleEl])
 
   return (
     <Wrapper ref={ref => setWrapperEl(ref)}>
@@ -120,7 +162,12 @@ const Work = () => {
             <BlackBackground className="bg-section"/>
           </BackgroundSection>
         </Background>
-        <Title>WORK</Title>
+        <Title ref={ref => setTitleEl(ref)}>WORK</Title>
+        <Image1 className="case-study-card" image={Images.antiSocial.childImageSharp.gatsbyImageData}/>
+        <Image2 className="case-study-card" image={Images.idk.childImageSharp.gatsbyImageData}/>
+        <Image3 className="case-study-card" image={Images.dallenHoyal.childImageSharp.gatsbyImageData}/>
+        <Image4 className="case-study-card" image={Images.lemond.childImageSharp.gatsbyImageData}/>
+        <Image5 className="case-study-card" image={Images.source7.childImageSharp.gatsbyImageData}/>
       </Inner>
     </Wrapper>
   )
@@ -178,6 +225,7 @@ const Inner = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  z-index: 1;
   
   ${fresponsive(css`
     transform: translateY(300px);
@@ -191,10 +239,64 @@ const Title = styled.h2`
   color: ${colors.tan};
   mix-blend-mode: difference;
   left: 50%;
+  top: 50%;
+  transform: translate(-50%, -40%);
   
   ${fresponsive(css`
-    top: 50%;
-    transform: translate(-50%, -40%);
     font-size: 870px;
+  `)}
+`
+
+const Image = styled(GatsbyImage)`
+  position: absolute !important;
+  
+  ${fresponsive(css`
+    width: 336.23px;
+    height: 543.04px;
+  `)}
+`
+
+const Image1 = styled(Image)`
+  z-index: 3;
+
+  ${fresponsive(css`
+    top: 1500px;
+    left: 260px;
+  `)}
+`
+
+const Image2 = styled(Image)`
+  z-index: 3;
+
+  ${fresponsive(css`
+    left: 1250px;
+    top: 945px;
+  `)}
+`
+
+const Image3 = styled(Image)`
+  z-index: 1;
+
+  ${fresponsive(css`
+    left: 1200px;
+    top: 2059px;
+  `)}
+`
+
+const Image4 = styled(Image)`
+  z-index: 3;
+
+  ${fresponsive(css`
+    top: 2700px;
+    left: 200px;
+  `)}
+`
+
+const Image5 = styled(Image)`
+  z-index: 1;
+
+  ${fresponsive(css`
+    top: 3400px;
+    left: 900px;
   `)}
 `
