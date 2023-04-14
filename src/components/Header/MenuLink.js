@@ -5,8 +5,9 @@ import colors from 'styles/colors'
 import gsap from 'gsap'
 import { fresponsive } from 'utils/fullyResponsive'
 import { useMedia } from 'utils/useMedia'
+import { navigate } from 'gatsby'
 
-const MenuLink = ({ href, children}) => {
+const MenuLink = ({ to, children}) => {
 
   const wrapperRef = useRef(null)
   const innerRef = useRef(null);
@@ -39,7 +40,7 @@ const MenuLink = ({ href, children}) => {
   }, [height]);
 
   return (
-    <Wrapper ref={wrapperRef} onMouseEnter={() => timeline.play()} onMouseLeave={() => timeline.reverse()}>
+    <Wrapper ref={wrapperRef} onMouseEnter={() => timeline.play()} onMouseLeave={() => timeline.reverse()} onClick={() => navigate(to)}>
       <Inner ref={innerRef}>
         <Child className="front">
           <Span1>{children}</Span1>

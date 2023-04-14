@@ -3,46 +3,47 @@ import styled, { css } from 'styled-components'
 import { fresponsive } from 'utils/fullyResponsive'
 import colors from 'styles/colors'
 import text from 'styles/text'
+import { navigate } from 'gatsby'
 
 const CaseStudies = () => {
   return (
     <Wrapper>
-      <CaseStudy1>
+      <CaseStudy1 onClick={() => navigate('/case-studies/antisocial-agency')}>
         <Title>AntiSocial Agency</Title>
         <Content>
           <Label><span>Year: </span><span>2023</span></Label>
           <Label><span>My&nbsp;Role: </span><span>Creative&nbsp;Direction, UX, UI</span></Label>
         </Content>
       </CaseStudy1>
-      <CaseStudy2>
+      <CaseStudy2 onClick={() => navigate('/case-studies/adobe-consonant')}>
         <Title>Adobe Consonant</Title>
         <Content>
           <Label><span>Year: </span><span>2023</span></Label>
           <Label><span>My&nbsp;Role: </span><span>Creative&nbsp;Direction, Branding</span></Label>
         </Content>
       </CaseStudy2>
-      <CaseStudy3>
+      <CaseStudy3 onClick={() => navigate('/case-studies/jasper-ai')}>
         <Title>Jasper AI</Title>
         <Content>
           <Label><span>Year: </span><span>2023</span></Label>
           <Label><span>My&nbsp;Role: </span><span>Creative&nbsp;Direction, UX, UI</span></Label>
         </Content>
       </CaseStudy3>
-      <CaseStudy4>
+      <CaseStudy4 onClick={() => navigate('/case-studies/dallen-hoyal')}>
         <Title>Dallen Hoyal</Title>
         <Content>
           <Label><span>Year: </span><span>2023</span></Label>
           <Label><span>My&nbsp;Role: </span><span>Creative&nbsp;Direction, UX, UI</span></Label>
         </Content>
       </CaseStudy4>
-      <CaseStudy5>
+      <CaseStudy5 onClick={() => navigate('/case-studies/lemond-cycles')}>
         <Title>Lemond Cycles</Title>
         <Content>
           <Label><span>Year: </span><span>2020</span></Label>
           <Label><span>My&nbsp;Role: </span><span>Creative&nbsp;Direction, Branding</span></Label>
         </Content>
       </CaseStudy5>
-      <CaseStudy6>
+      <CaseStudy6 onClick={() => navigate('/case-studies/source-7')}>
         <Title>Source 7</Title>
         <Content>
           <Label><span>Year: </span><span>2020</span></Label>

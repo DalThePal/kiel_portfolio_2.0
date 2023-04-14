@@ -47,7 +47,7 @@ const Header = () => {
             <MenuLink>AntiSocial Agency</MenuLink>
             <MenuLink>Adobe Consonant</MenuLink>
             <MenuLink>Jasper.ai</MenuLink>
-            <MenuLink>Dallen Hoyal</MenuLink>
+            <MenuLink to="/case-studies/dallen-hoyal">Dallen Hoyal</MenuLink>
             <MenuLink>Lemond Cycles</MenuLink>
             <MenuLink>Source 7</MenuLink>
           </Links>

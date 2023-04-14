@@ -54,6 +54,14 @@ const text = {
     line-height: 100%;
     letter-spacing: -0.05em;
     text-transform: uppercase;
+  `),
+  bodyL: fresponsive(css`
+    font-family: 'Space Mono';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 120%;
+    letter-spacing: -0.08em;
   `)
 }
 
