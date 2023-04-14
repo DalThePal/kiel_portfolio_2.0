@@ -21,6 +21,34 @@ const CaseStudies = () => {
           <Label><span>My&nbsp;Role: </span><span>Creative&nbsp;Direction, Branding</span></Label>
         </Content>
       </CaseStudy2>
+      <CaseStudy3>
+        <Title>Jasper AI</Title>
+        <Content>
+          <Label><span>Year: </span><span>2023</span></Label>
+          <Label><span>My&nbsp;Role: </span><span>Creative&nbsp;Direction, UX, UI</span></Label>
+        </Content>
+      </CaseStudy3>
+      <CaseStudy4>
+        <Title>Dallen Hoyal</Title>
+        <Content>
+          <Label><span>Year: </span><span>2023</span></Label>
+          <Label><span>My&nbsp;Role: </span><span>Creative&nbsp;Direction, UX, UI</span></Label>
+        </Content>
+      </CaseStudy4>
+      <CaseStudy5>
+        <Title>Lemond Cycles</Title>
+        <Content>
+          <Label><span>Year: </span><span>2020</span></Label>
+          <Label><span>My&nbsp;Role: </span><span>Creative&nbsp;Direction, Branding</span></Label>
+        </Content>
+      </CaseStudy5>
+      <CaseStudy6>
+        <Title>Source 7</Title>
+        <Content>
+          <Label><span>Year: </span><span>2020</span></Label>
+          <Label><span>My&nbsp;Role: </span><span>Creative&nbsp;Direction, Branding, UX, UI</span></Label>
+        </Content>
+      </CaseStudy6>
     </Wrapper>
   )
 }
@@ -93,5 +121,33 @@ const CaseStudy2 = styled(CaseStudy)`
   ${fresponsive(css`
     right: 133px;
     top: 257px;
+  `)}
+`
+
+const CaseStudy3 = styled(CaseStudy)`
+  ${fresponsive(css`
+    right: 698px;
+    top: 515px;
+  `)}
+`
+
+const CaseStudy4 = styled(CaseStudy)`
+  ${fresponsive(css`
+    left: 133px;
+    top: 772px;
+  `)}
+`
+
+const CaseStudy5 = styled(CaseStudy)`
+  ${fresponsive(css`
+    right: 486px;
+    top: 1029px;
+  `)}
+`
+
+const CaseStudy6 = styled(CaseStudy)`
+  ${fresponsive(css`
+    right: 278px;
+    top: 1287px;
   `)}
 `
