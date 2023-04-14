@@ -15,7 +15,7 @@ const UniversalLink = ({ to, external, children, className }) => {
 
   return (
     <Wrapper {...props} className={className}>
-      {children} ↗
+      {children}
     </Wrapper>
   )
 }
