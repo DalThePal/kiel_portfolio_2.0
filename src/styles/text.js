@@ -62,6 +62,14 @@ const text = {
     font-size: 20px;
     line-height: 120%;
     letter-spacing: -0.08em;
+  `),
+  bodyM: fresponsive(css`
+    font-family: 'Space Mono';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 120%;
+    letter-spacing: -0.08em;
   `)
 }
 
