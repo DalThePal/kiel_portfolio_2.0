@@ -2,6 +2,7 @@ import React from 'react'
 import Hero from 'sections/caseStudy/01-Hero'
 import Video from 'sections/caseStudy/02-Video'
 import Picture from 'sections/caseStudy/03-Picture'
+import Links from 'sections/caseStudy/04-Links'
 import { graphql } from 'gatsby'
 import WebM from 'images/dallen-hoyal.webm'
 
@@ -28,6 +29,10 @@ const DallenHoyal = ({data}) => {
       <Picture
         title="Simple but Bold Experience"
         text="Our goal was to create a portfolio that was both visually stunning and user-friendly. To achieve this, we used a clean and streamlined design that was easy to navigate. We also incorporated simple scroll based landing page that had only one function: showcase work. By creating an intuitive and user-friendly design, we were able to create a portfolio that was both aesthetically pleasing and easy to use."
+        image={data.imageLarge}
+      />
+      <Links
+      
       />
     </>
   )
@@ -58,6 +63,11 @@ export const pageQuery = graphql`
       }
     }
     image4: file(relativePath: {eq: "dallen-hoyal-4.jpg"}) {
+      childImageSharp {
+        gatsbyImageData
+      }
+    }
+    imageLarge: file(relativePath: {eq: "dallen-hoyal-large.jpg"}) {
       childImageSharp {
         gatsbyImageData
       }

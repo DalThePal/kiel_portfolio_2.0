@@ -3,14 +3,18 @@ import styled, { css } from 'styled-components'
 import { fresponsive } from 'utils/fullyResponsive'
 import colors from 'styles/colors'
 import text from 'styles/text'
+import { GatsbyImage } from 'gatsby-plugin-image'
 
-const Picture = ({ title, text }) => {
+const Picture = ({ title, text, image }) => {
   return (
     <Wrapper>
       <Content>
         <Title>{title}</Title>
         <Text>{text}</Text>
       </Content>
+      <Image
+        image={image.childImageSharp.gatsbyImageData}
+      />
     </Wrapper>
   )
 }
@@ -53,5 +57,17 @@ const Text = styled.p`
 
   ${fresponsive(css`
     width: 633px;
+  `)}
+`
+
+const Image = styled(GatsbyImage)`
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+
+  ${fresponsive(css`
+    width: 1287px;
+    height: 3620px;
+    top: 1161px;
   `)}
 `
