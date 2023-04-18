@@ -49,7 +49,6 @@ export default function Graphics({ wrapper }) {
 
   const updateImagePosition = useCallback(() => {
     const { x, y } = mouseCoord.current
-    console.log(x, y)
     const length = 16
 
     const currentImage = `.graphic-${graphicIndex.current}`
@@ -95,7 +94,6 @@ export default function Graphics({ wrapper }) {
     (e) => {
       if (updateImageOn && wrapper) {
         const { clientX, clientY } = e
-        console.log(clientX, clientY)
         const { x, y } = mouseCoord.current
         let update = false // only update if there is spacing for images
 
@@ -140,7 +138,6 @@ export default function Graphics({ wrapper }) {
       }
     }
   }, [mouseEnter, mouseLeave, mouseMove, wrapper])
-  console.log(images)
 
   return (
     <>

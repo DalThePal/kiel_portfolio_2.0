@@ -31,6 +31,7 @@ export default VideoSection
 
 const Wrapper = styled.section`
   position: relative;
+  z-index: 2;
   background-color: ${colors.tan};
 
   ${fresponsive(css`
