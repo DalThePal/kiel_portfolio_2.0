@@ -32,7 +32,7 @@ const DallenHoyal = ({data}) => {
         image={data.imageLarge}
       />
       <Links
-      
+        hide={3}
       />
     </>
   )
