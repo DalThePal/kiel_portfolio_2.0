@@ -4,13 +4,16 @@ import { fresponsive } from 'utils/fullyResponsive'
 import colors from 'styles/colors'
 import text from 'styles/text'
 import { navigate } from 'gatsby'
+import RotatingTitle from './RotatingTitle'
 
 const CaseStudyLinks = ({ hide }) => {
   return (
     <Wrapper>
       {hide !== 0 && <CaseStudy>
         <CaseStudy1 onClick={() => navigate('/case-studies/antisocial-agency')}>
-          <Title>AntiSocial Agency</Title>
+          <Title>
+            <RotatingTitle text="AntiSocial Agency"/>
+          </Title>
           <Content>
             <Label><span>Year: </span><span>2023</span></Label>
             <Label><span>My&nbsp;Role: </span><span>Creative&nbsp;Direction, UX, UI</span></Label>
@@ -70,7 +73,7 @@ export default CaseStudyLinks
 
 const Wrapper = styled.div`
   position: relative;
-  z-index: 2;
+  z-index: 8;
   background-color: ${colors.black};
   width: 100%;
   display: flex;
@@ -101,7 +104,7 @@ const CaseStudyInner = styled.div`
   `)}
 `
 
-const Title = styled.span`
+const Title = styled.div`
   ${text.h3}
   color: ${colors.tan};
   text-transform: uppercase;
