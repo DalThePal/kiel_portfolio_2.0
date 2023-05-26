@@ -11,15 +11,16 @@ const RotatingTitle = ({text}) => {
 
   useEffect(() => {
     const tl = gsap.timeline({
+      paused: true,
       defaults: {
-        paused: true,
         ease: 'none'
       }
     })
 
     tl.to(`.${text.split(' ').join('-')}`, {
-      stagger: 0.2,
-      rotateX: -90
+      stagger: 0.1,
+      rotateX: 90,
+      duration: 0.4
     })
 
     setTimeline(tl)
@@ -31,6 +32,7 @@ const RotatingTitle = ({text}) => {
 
   const mouseEnter = () => {
     if (timeline) {
+      console.log('timeline')
       timeline.play()
     }
   }
@@ -61,40 +63,43 @@ export default RotatingTitle
 
 const Wrapper = styled.div`
   display: flex;
-  perspective: 1000px;
+  perspective: 5000px;
 `
 
 const Box = styled.div`
   position: relative;
   transform-style: preserve-3d;
-  transform-origin: center center center;
-
+  
   ${fresponsive(css`
+    transform-origin: center center;
     height: 193px;
-    width: 58px;
+    /* width: 58px; */
+    min-width: 20px;
   `)}
 `
 
 const Face = styled.span`
   ${text.h3}
   color: ${colors.tan};
+  background-color: ${colors.black};
   text-transform: uppercase;
   height: 100%;
   width: 100%;
-  position: absolute;
+  position: relative;
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
   display: flex;
   align-items: center;
   justify-content: center;
-  transform-origin: center center center;
+  transform-origin: center center;
+  backface-visibility: hidden;
 
   &.front {
-    transform: translate(-50%, -50%) translateZ(20px);
+    transform: translate(-50%, -50%) translateZ(81.5px);
   }
 
   &.bottom {
-    transform: rotateX(-90deg) translate(-50%, -50%) translateZ(20px);
+    transform: rotateX(-90deg) translate(-50%, 0%) translateZ(-81px);
   }
 `

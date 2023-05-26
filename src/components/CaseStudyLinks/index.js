@@ -22,7 +22,9 @@ const CaseStudyLinks = ({ hide }) => {
       </CaseStudy>}
      {hide !== 1 && <CaseStudy>
         <CaseStudy2 onClick={() => navigate('/case-studies/adobe-consonant')}>
-          <Title>Adobe Consonant</Title>
+          <Title>
+            <RotatingTitle text="Adobe Consonant"/>
+          </Title>
           <Content>
             <Label><span>Year: </span><span>2023</span></Label>
             <Label><span>My&nbsp;Role: </span><span>Creative&nbsp;Direction, Branding</span></Label>
@@ -31,7 +33,9 @@ const CaseStudyLinks = ({ hide }) => {
       </CaseStudy>}
       {hide !== 2 && <CaseStudy>
         <CaseStudy3 onClick={() => navigate('/case-studies/jasper-ai')}>
-          <Title>Jasper AI</Title>
+          <Title>
+            <RotatingTitle text="Jasper AI"/>
+          </Title>
           <Content>
             <Label><span>Year: </span><span>2023</span></Label>
             <Label><span>My&nbsp;Role: </span><span>Creative&nbsp;Direction, UX, UI</span></Label>
@@ -40,7 +44,9 @@ const CaseStudyLinks = ({ hide }) => {
       </CaseStudy>}
       {hide !== 3 && <CaseStudy>
         <CaseStudy4 onClick={() => navigate('/case-studies/dallen-hoyal')}>
-          <Title>Dallen Hoyal</Title>
+          <Title>
+            <RotatingTitle text="Dallen Hoyal"/>
+          </Title>
           <Content>
             <Label><span>Year: </span><span>2023</span></Label>
             <Label><span>My&nbsp;Role: </span><span>Creative&nbsp;Direction, UX, UI</span></Label>
@@ -49,7 +55,9 @@ const CaseStudyLinks = ({ hide }) => {
       </CaseStudy>}
       {hide !== 4 && <CaseStudy>
         <CaseStudy5 onClick={() => navigate('/case-studies/lemond-cycles')}>
-          <Title>Lemond Cycles</Title>
+          <Title>
+            <RotatingTitle text="Lemond Cycles"/>
+          </Title>
           <Content>
             <Label><span>Year: </span><span>2020</span></Label>
             <Label><span>My&nbsp;Role: </span><span>Creative&nbsp;Direction, Branding</span></Label>
@@ -58,7 +66,9 @@ const CaseStudyLinks = ({ hide }) => {
       </CaseStudy>}
       {hide !== 5 && <CaseStudy>
         <CaseStudy6 onClick={() => navigate('/case-studies/source-7')}>
-          <Title>Source 7</Title>
+          <Title>
+            <RotatingTitle text="Source 7"/>
+          </Title>
           <Content>
             <Label><span>Year: </span><span>2020</span></Label>
             <Label><span>My&nbsp;Role: </span><span>Creative&nbsp;Direction, Branding, UX, UI</span></Label>
@@ -108,6 +118,7 @@ const Title = styled.div`
   ${text.h3}
   color: ${colors.tan};
   text-transform: uppercase;
+  cursor: pointer;
 `
 
 const Content = styled.div`
