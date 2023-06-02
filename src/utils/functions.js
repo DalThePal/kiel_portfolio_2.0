@@ -43,3 +43,12 @@ export const vwToPx = (vw) => {
   }
   return 0
 }
+
+export const sleep = (ms) =>
+  new Promise(resolve => {
+    setTimeout(resolve, ms)
+  })
+
+export function pathnameMatches(pathA, pathB) {
+  return pathA === pathB || pathA === `${pathB}/` || pathB === `${pathA}/`
+}
