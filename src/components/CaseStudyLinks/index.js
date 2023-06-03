@@ -1,80 +1,110 @@
-import React from 'react'
+import React, { useMemo } from 'react'
 import styled, { css } from 'styled-components'
 import { fresponsive } from 'utils/fullyResponsive'
 import colors from 'styles/colors'
 import text from 'styles/text'
-import { navigate } from 'gatsby'
+import { navigate, useStaticQuery, graphql } from 'gatsby'
 import RotatingTitle from './RotatingTitle'
+import { GatsbyImage } from 'gatsby-plugin-image'
+import Study, { Inner } from './Study'
 
 const CaseStudyLinks = ({ hide }) => {
+
+  const images = useStaticQuery(graphql`
+    query {
+      antiSocial: file(relativePath: {eq: "anti-social-case-study.jpg"}) {
+        childImageSharp {
+          gatsbyImageData
+        }
+      }
+      dallenHoyal: file(relativePath: {eq: "dallen-hoyal-case-study.jpg"}) {
+        childImageSharp {
+          gatsbyImageData
+        }
+      }
+      idk: file(relativePath: {eq: "idk-case-study.jpg"}) {
+        childImageSharp {
+          gatsbyImageData
+        }
+      }
+      lemond: file(relativePath: {eq: "lemond-case-study.jpg"}) {
+        childImageSharp {
+          gatsbyImageData
+        }
+      }
+      source7: file(relativePath: {eq: "source-7-case-study.jpg"}) {
+        childImageSharp {
+          gatsbyImageData
+        }
+      }
+    }
+  `)
+
+  const studies = useMemo(() => [
+    {
+      route: "/case-studies/antisocial-agency",
+      title: "AntiSocial Agency",
+      image: images.antiSocial,
+      year: "2023",
+      role: <>Creative&nbsp;Direction, UX, UI</>
+    },
+    {
+      route: "/case-studies/adobe-consonant",
+      title: "Adobe Consonant",
+      image: images.idk,
+      year: "2023",
+      role: <>Creative&nbsp;Direction, Branding</>
+    },
+    {
+      route: "/case-studies/jasper-ai",
+      title: "Jasper AI",
+      image: images.antiSocial,
+      year: "2023",
+      role: <>Creative&nbsp;Direction, UX, UI</>
+    },
+    {
+      route: "/case-studies/dallen-hoyal",
+      title: "Dallen Hoyal",
+      image: images.dallenHoyal,
+      year: "2023",
+      role: <>Creative&nbsp;Direction, UX, UI</>
+    },
+    {
+      route: "/case-studies/lemond-cycles",
+      title: "Lemond Cycles",
+      image: images.lemond,
+      year: "2020",
+      role: <>Creative&nbsp;Direction, Branding</>
+    },
+    {
+      route: "/case-studies/source-7'",
+      title: "Source 7",
+      image: images.source7,
+      year: "2020",
+      role: <>Creative&nbsp;Direction, Branding, UX, UI</>
+    },
+  ], [images])
+
   return (
     <Wrapper>
-      {hide !== 0 && <CaseStudy>
-        <CaseStudy1 onClick={() => navigate('/case-studies/antisocial-agency')}>
-          <Title>
-            <RotatingTitle text="AntiSocial Agency"/>
-          </Title>
-          <Content>
-            <Label><span>Year: </span><span>2023</span></Label>
-            <Label><span>My&nbsp;Role: </span><span>Creative&nbsp;Direction, UX, UI</span></Label>
-          </Content>
-        </CaseStudy1>
-      </CaseStudy>}
-     {hide !== 1 && <CaseStudy>
-        <CaseStudy2 onClick={() => navigate('/case-studies/adobe-consonant')}>
-          <Title>
-            <RotatingTitle text="Adobe Consonant"/>
-          </Title>
-          <Content>
-            <Label><span>Year: </span><span>2023</span></Label>
-            <Label><span>My&nbsp;Role: </span><span>Creative&nbsp;Direction, Branding</span></Label>
-          </Content>
-        </CaseStudy2>
-      </CaseStudy>}
-      {hide !== 2 && <CaseStudy>
-        <CaseStudy3 onClick={() => navigate('/case-studies/jasper-ai')}>
-          <Title>
-            <RotatingTitle text="Jasper AI"/>
-          </Title>
-          <Content>
-            <Label><span>Year: </span><span>2023</span></Label>
-            <Label><span>My&nbsp;Role: </span><span>Creative&nbsp;Direction, UX, UI</span></Label>
-          </Content>
-        </CaseStudy3>
-      </CaseStudy>}
-      {hide !== 3 && <CaseStudy>
-        <CaseStudy4 onClick={() => navigate('/case-studies/dallen-hoyal')}>
-          <Title>
-            <RotatingTitle text="Dallen Hoyal"/>
-          </Title>
-          <Content>
-            <Label><span>Year: </span><span>2023</span></Label>
-            <Label><span>My&nbsp;Role: </span><span>Creative&nbsp;Direction, UX, UI</span></Label>
-          </Content>
-        </CaseStudy4>
-      </CaseStudy>}
-      {hide !== 4 && <CaseStudy>
-        <CaseStudy5 onClick={() => navigate('/case-studies/lemond-cycles')}>
-          <Title>
-            <RotatingTitle text="Lemond Cycles"/>
-          </Title>
-          <Content>
-            <Label><span>Year: </span><span>2020</span></Label>
-            <Label><span>My&nbsp;Role: </span><span>Creative&nbsp;Direction, Branding</span></Label>
-          </Content>
-        </CaseStudy5>
-      </CaseStudy>}
-      {hide !== 5 && <CaseStudy>
-        <CaseStudy6 onClick={() => navigate('/case-studies/source-7')}>
-          <Title>
-            <RotatingTitle text="Source 7"/>
-          </Title>
-          <Content>
-            <Label><span>Year: </span><span>2020</span></Label>
-            <Label><span>My&nbsp;Role: </span><span>Creative&nbsp;Direction, Branding, UX, UI</span></Label>
-          </Content>
-        </CaseStudy6>
-      </CaseStudy>}
+      {hide !== 0 && <CaseStudy1
+        data={studies[0]}
+      />}
+     {hide !== 1 && <CaseStudy2
+        data={studies[1]}
+     />}
+      {hide !== 2 && <CaseStudy3
+        data={studies[2]}
+      />}
+      {hide !== 3 && <CaseStudy4
+        data={studies[3]}
+      />}
+      {hide !== 4 && <CaseStudy5
+        data={studies[4]}
+      />}
+      {hide !== 5 && <CaseStudy6
+        data={studies[5]}
+      />}
     </Wrapper>
   )
 }
@@ -94,93 +124,51 @@ const Wrapper = styled.div`
   `)}
 `
 
-const CaseStudy = styled.div`
-  position: relative;
-  width: 100%;
+const CaseStudy1 = styled(Study)`
 
-  ${fresponsive(css`
-    gap: 22px;
-    height: 193px;
-  `)}
-`
-
-const CaseStudyInner = styled.div`
-  display: flex;
-  align-items: center;
-  position: absolute;
-
-  ${fresponsive(css`
-    gap: 22px;
-  `)}
-`
-
-const Title = styled.div`
-  ${text.h3}
-  color: ${colors.tan};
-  text-transform: uppercase;
-  cursor: pointer;
-`
-
-const Content = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-
-  ${fresponsive(css`
-    gap: 6px;
-    width: 256px;
-  `)}
-`
-
-const Label = styled.span`
-  ${text.s2}
-  color: ${colors.tan};
-  font-weight: 400;
-  text-transform: uppercase;
-  display: flex;
-  flex-wrap: wrap;
-
-  span:last-of-type {
-    font-weight: 700;
+  ${Inner} {
+    ${fresponsive(css`
+      left: 133px;
+    `)}
   }
-
-  ${fresponsive(css`
-    gap: 6px;
-  `)}
 `
 
-const CaseStudy1 = styled(CaseStudyInner)`
-  ${fresponsive(css`
-    left: 133px;
-  `)}
+const CaseStudy2 = styled(Study)`
+  ${Inner} {
+    ${fresponsive(css`
+      right: 133px;
+    `)}
+  }
 `
 
-const CaseStudy2 = styled(CaseStudyInner)`
-  ${fresponsive(css`
-    right: 133px;
-  `)}
+const CaseStudy3 = styled(Study)`
+  ${Inner} {
+    ${fresponsive(css`
+      right: 698px;
+    `)}
+  }
 `
 
-const CaseStudy3 = styled(CaseStudyInner)`
-  ${fresponsive(css`
-    right: 698px;
-  `)}
+const CaseStudy4 = styled(Study)`
+  ${Inner} {
+    ${fresponsive(css`
+      left: 133px;
+    `)}
+  }
 `
 
-const CaseStudy4 = styled(CaseStudyInner)`
-  ${fresponsive(css`
-    left: 133px;
-  `)}
+const CaseStudy5 = styled(Study)`
+  ${Inner} {
+    ${fresponsive(css`
+      right: 486px;
+    `)}
+  }
 `
 
-const CaseStudy5 = styled(CaseStudyInner)`
-  ${fresponsive(css`
-    right: 486px;
-  `)}
-`
-
-const CaseStudy6 = styled(CaseStudyInner)`
-  ${fresponsive(css`
-    right: 278px;
-  `)}
+const CaseStudy6 = styled(Study)`
+  ${Inner} {
+    ${fresponsive(css`
+      right: 278px;
+    `)}
+  }
 `

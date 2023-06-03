@@ -18,9 +18,9 @@ const RotatingTitle = ({text}) => {
     })
 
     tl.to(`.${text.split(' ').join('-')}`, {
-      stagger: 0.1,
+      stagger: 0.05,
       rotateX: 90,
-      duration: 0.4
+      duration: 0.2
     })
 
     setTimeline(tl)
@@ -32,7 +32,6 @@ const RotatingTitle = ({text}) => {
 
   const mouseEnter = () => {
     if (timeline) {
-      console.log('timeline')
       timeline.play()
     }
   }
@@ -81,7 +80,6 @@ const Box = styled.div`
 const Face = styled.span`
   ${text.h3}
   color: ${colors.tan};
-  background-color: ${colors.black};
   text-transform: uppercase;
   height: 100%;
   width: 100%;

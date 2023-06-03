@@ -20,7 +20,7 @@ export const Head = () => {
   return (
     <Seo
       title="Kiel Cummings"
-      description="Kiel Cumming Portfolio"
+      description="Kiel Cummings Portfolio"
       pathname="/"
     />
   )
