@@ -38,7 +38,8 @@ export default function Preloader() {
       outTl.add(rotate("HELLO TROUBLE", true), 0)
       outTl.add(rotate("COME ON IN", true), 0.25)
       outTl.to(wrapperRef.current, {
-        y: '-100%'
+        y: '-100%',
+        ease: "power4.inOut"
       }, 5)
     }
 
