@@ -20,7 +20,8 @@ const Header = () => {
       })
 
       tl.to(menuEl, {
-        height: window.innerHeight
+        height: window.innerHeight,
+        ease: 'power4.inOut'
       })
 
       setTimeline(tl)
