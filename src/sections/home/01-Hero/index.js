@@ -10,7 +10,7 @@ const Hero = () => {
   const [wrapperEl, setWrapperEl] = useState(null)
 
   return (
-    <Wrapper ref={ref => setWrapperEl(ref)}>\
+    <Wrapper ref={ref => setWrapperEl(ref)}>
       <Inner>
         <SubTitle>Digital Storyteller. Creative Problem Solver. Experience Activist. Ui Composer. Trend Disrupter.</SubTitle>
         <Title>Kiel Cummings</Title>
@@ -39,6 +39,7 @@ const Wrapper = styled.section`
   z-index: 3;
   width: 100%;
   height: 100vh;
+  background-color: ${colors.tan};
 `
 
 const Inner = styled.div`

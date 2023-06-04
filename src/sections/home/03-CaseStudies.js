@@ -1,7 +1,6 @@
 import React from 'react'
 import styled, { css } from 'styled-components'
 import { fresponsive } from 'utils/fullyResponsive'
-import colors from 'styles/colors'
 import CaseStudyLinks from 'components/CaseStudyLinks'
 
 const CaseStudies = () => {
@@ -15,9 +14,6 @@ const CaseStudies = () => {
 export default CaseStudies
 
 const Wrapper = styled.section`
-  position: relative;
-  z-index: 2;
-  background-color: ${colors.black};
   width: 100%;
 
   ${fresponsive(css`

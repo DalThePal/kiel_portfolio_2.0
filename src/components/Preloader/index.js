@@ -25,8 +25,10 @@ export default function Preloader() {
 
     const animateOut = () => {
       const outTl = gsap.timeline({
-        onComplete: () => {
+        onStart: () => {
           ScrollSmoother.get()?.scrollTop(0)
+        },
+        onComplete: () => {
           ScrollSmoother.get()?.paused(false)
           gsap.set(wrapperRef.current, {
             display: "none",

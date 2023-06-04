@@ -1,20 +1,20 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import styled, { css } from 'styled-components'
 import { fresponsive } from 'utils/fullyResponsive'
 import colors from 'styles/colors'
 import text from 'styles/text'
 import gsap from 'gsap'
 import { desktopDesignSize } from 'styles/media'
-import { pxToVw, vwToPx, getMedia } from 'utils/functions'
+import { pxToVw, vwToPx } from 'utils/functions'
 import { useStaticQuery, graphql } from 'gatsby'
 import { GatsbyImage } from 'gatsby-plugin-image'
+import Background, { changeColor } from 'components/Background'
 
 const Work = () => {
 
   const [wrapperEl, setWrapperEl] = useState(null)
   const [innerEl, setInnerEl] = useState(null)
-  const [backgroundEl, setBackgroundEl] = useState(null)
-  const [titleEl, setTitleEl] = useState(null)
+  const titleRef = useRef()
 
   const Images = useStaticQuery(graphql`
     query {
@@ -51,19 +51,10 @@ const Work = () => {
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: wrapperEl,
-          start: () => {
-            const offset = getMedia(
-              vwToPx(pxToVw(300, desktopDesignSize)),
-              vwToPx(pxToVw(300, desktopDesignSize)),
-              vwToPx(pxToVw(300, desktopDesignSize)),
-              vwToPx(pxToVw(300, desktopDesignSize)),
-            )
-            
-            return `top top-=${offset}`
-          },
+          start: "top top",
           end: "bottom bottom",
           pin: innerEl,
-          scrub: true
+          scrub: true, 
         }
       })
 
@@ -78,91 +69,36 @@ const Work = () => {
   }, [wrapperEl, innerEl])
 
   useEffect(() => {
-    if (wrapperEl && backgroundEl && titleEl) {
-
-      const sections = backgroundEl.getElementsByClassName('bg-section')
-
+    if (wrapperEl) {
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: wrapperEl,
-          start: () => {
-            const offset = getMedia(
-              vwToPx(pxToVw(500, desktopDesignSize)),
-              vwToPx(pxToVw(500, desktopDesignSize)),
-              vwToPx(pxToVw(500, desktopDesignSize)),
-              vwToPx(pxToVw(500, desktopDesignSize)),
-            )
-
-            return `top top+=${offset}`
-          },
-          end: () => {
-            const offset = getMedia(
-              vwToPx(pxToVw(500, desktopDesignSize)),
-              vwToPx(pxToVw(500, desktopDesignSize)),
-              vwToPx(pxToVw(500, desktopDesignSize)),
-              vwToPx(pxToVw(500, desktopDesignSize)),
-            )
-
-            return `+=${offset}`
-          },
-          scrub: true,
+          start: "top 50%",
+          end: `top top`,
+          scrub: true, 
         }
       })
 
-      tl.to(backgroundEl, {
-        y: () => getMedia(
-          vwToPx(pxToVw(-400, desktopDesignSize)),
-          vwToPx(pxToVw(-400, desktopDesignSize)),
-          vwToPx(pxToVw(-400, desktopDesignSize)),
-          vwToPx(pxToVw(-400, desktopDesignSize)),
-        )
-      }, 0)
+      tl.add(changeColor('work-background', colors.tan, colors.black), 0)
 
-      tl.to(sections, {
-        height: (window.innerHeight * 1.6) / 8 + 5
-      }, 0)
-
-      tl.set(titleEl, {
-        color: colors.tan,
-        mixBlendMode: 'unset'
-      }, 1)
+      tl.fromTo(titleRef.current, {
+        mixBlendMode: 'difference'
+      }, {
+        mixBlendMode: 'unset',
+        duration: 0
+      })
 
       return () => {
         tl.kill()
       }
     }
-  }, [wrapperEl, backgroundEl, titleEl])
+  }, [wrapperEl])
 
   return (
     <Wrapper ref={ref => setWrapperEl(ref)}>
       <Inner ref={ref => setInnerEl(ref)}>
-        <Background ref={ref => setBackgroundEl(ref)}>
-          <BackgroundSection>
-            <BlackBackground className="bg-section"/>
-          </BackgroundSection>
-          <BackgroundSection>
-            <BlackBackground className="bg-section"/>
-          </BackgroundSection>
-          <BackgroundSection>
-            <BlackBackground className="bg-section"/>
-          </BackgroundSection>
-          <BackgroundSection>
-            <BlackBackground className="bg-section"/>
-          </BackgroundSection>
-          <BackgroundSection>
-            <BlackBackground className="bg-section"/>
-          </BackgroundSection>
-          <BackgroundSection>
-            <BlackBackground className="bg-section"/>
-          </BackgroundSection>
-          <BackgroundSection>
-            <BlackBackground className="bg-section"/>
-          </BackgroundSection>
-          <BackgroundSection>
-            <BlackBackground className="bg-section"/>
-          </BackgroundSection>
-        </Background>
-        <Title ref={ref => setTitleEl(ref)}>WORK</Title>
+        <Background id={"work-background"}/>
+        <Title ref={titleRef}>WORK</Title>
         <Image1 className="case-study-card" image={Images.antiSocial.childImageSharp.gatsbyImageData}/>
         <Image2 className="case-study-card" image={Images.idk.childImageSharp.gatsbyImageData}/>
         <Image3 className="case-study-card" image={Images.dallenHoyal.childImageSharp.gatsbyImageData}/>
@@ -185,51 +121,12 @@ const Wrapper = styled.section`
   `)}
 `
 
-const Background = styled.div`
-  background-color: ${colors.tan};
-  width: 100%;
-  height: 160vh;
-  position: absolute;
-  z-index: 1;
-  top: 0;
-  left: 0;
-  display: flex;
-  flex-direction: column;
-  
-  ${fresponsive(css`
-    transform: translateY(-500px);
-  `)}
-`
-
-const BackgroundSection = styled.div`
+const Inner = styled.div`
   position: relative;
   width: 100%;
-  height: 20vh;
-`
-
-const BlackBackground = styled.div`
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 0;
-  background-color: ${colors.black};
-`
-
-const Inner = styled.div`
-  position: absolute;
-  width: 100%;
-  top: 0;
-  left: 0;
   height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   z-index: 1;
-  
-  ${fresponsive(css`
-    transform: translateY(300px);
-  `)}
+  transform: translate(0);
 `
 
 const Title = styled.h2`
@@ -238,10 +135,10 @@ const Title = styled.h2`
   ${text.h1}
   color: ${colors.tan};
   mix-blend-mode: difference;
-  left: 50%;
   top: 50%;
+  left: 50%;
   transform: translate(-50%, -40%);
-  
+
   ${fresponsive(css`
     font-size: 870px;
   `)}

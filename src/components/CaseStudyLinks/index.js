@@ -1,11 +1,8 @@
 import React, { useMemo } from 'react'
 import styled, { css } from 'styled-components'
 import { fresponsive } from 'utils/fullyResponsive'
-import colors from 'styles/colors'
-import text from 'styles/text'
-import { navigate, useStaticQuery, graphql } from 'gatsby'
-import RotatingTitle from './RotatingTitle'
-import { GatsbyImage } from 'gatsby-plugin-image'
+import { useStaticQuery, graphql } from 'gatsby'
+
 import Study, { Inner } from './Study'
 
 const CaseStudyLinks = ({ hide }) => {
@@ -114,10 +111,10 @@ export default CaseStudyLinks
 const Wrapper = styled.div`
   position: relative;
   z-index: 8;
-  background-color: ${colors.black};
   width: 100%;
   display: flex;
   flex-direction: column;
+  mix-blend-mode: difference;
 
   ${fresponsive(css`
     gap: 64px;

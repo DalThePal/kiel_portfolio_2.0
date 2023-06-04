@@ -1,10 +1,10 @@
 import React from "react"
-import styled from 'styled-components'
-import colors from 'styles/colors'
 import Seo from "components/Seo"
 import Hero from 'sections/home/01-Hero'
 import Work from 'sections/home/02-Work'
 import CaseStudies from "sections/home/03-CaseStudies"
+import styled from 'styled-components'
+import colors from 'styles/colors'
 
 const IndexPage = () => {
   return (
@@ -29,5 +29,5 @@ export const Head = () => {
 export default IndexPage
 
 const Wrapper = styled.div`
-  background-color: ${colors.tan};
+  background-color: ${colors.black};
 `

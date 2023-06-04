@@ -18,7 +18,8 @@ export default function Study({ data, className }) {
     gsap.set(`.${imageClassName}`, {
       x: e.x,
       y: e.y - rect.top,
-      xPercent: -50
+      xPercent: -50,
+      yPercent: -50
     })
   }
 
@@ -83,7 +84,6 @@ export const Inner = styled.div`
 
 const Title = styled.div`
   ${text.h3}
-  color: ${colors.tan};
   text-transform: uppercase;
   cursor: pointer;
 `
