@@ -1,5 +1,6 @@
 import React from 'react'
 import Layout from 'components/Layout'
+import Providers from 'components/Providers'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { ScrollSmoother } from 'gsap/ScrollSmoother'
@@ -17,5 +18,13 @@ export const wrapPageElement = ({ element }) => {
     <Layout>
       {element}
     </Layout>
+  )
+}
+
+export const wrapRootElement = ({ element }) => {
+  return (
+    <Providers>
+      {element}
+    </Providers>
   )
 }

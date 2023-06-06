@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react'
+import React, { useState, useEffect, useRef, useContext } from 'react'
 import styled, { css } from 'styled-components'
 import { fresponsive } from 'utils/fullyResponsive'
 import colors from 'styles/colors'
@@ -9,9 +9,10 @@ import { pxToVw, vwToPx } from 'utils/functions'
 import { useStaticQuery, graphql } from 'gatsby'
 import { GatsbyImage } from 'gatsby-plugin-image'
 import Background, { changeColor } from 'components/Background'
+import { LogoContext } from 'components/Providers'
 
 const Work = () => {
-
+  const setLogoColor = useContext(LogoContext).setColor
   const [wrapperEl, setWrapperEl] = useState(null)
   const [innerEl, setInnerEl] = useState(null)
   const titleRef = useRef()
@@ -76,6 +77,12 @@ const Work = () => {
           start: "top 50%",
           end: `top top`,
           scrub: true, 
+          onLeave: () => {
+            setLogoColor(colors.tan)
+          },
+          onEnterBack: () => {
+            setLogoColor(colors.black)
+          }
         }
       })
 
@@ -92,7 +99,7 @@ const Work = () => {
         tl.kill()
       }
     }
-  }, [wrapperEl])
+  }, [wrapperEl, setLogoColor])
 
   return (
     <Wrapper ref={ref => setWrapperEl(ref)}>

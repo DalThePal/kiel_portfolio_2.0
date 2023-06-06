@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react'
+import React, { useEffect, useRef, useContext } from 'react'
 import styled, { css } from 'styled-components'
 import {fresponsive} from 'utils/fullyResponsive'
 import colors from 'styles/colors'
@@ -8,9 +8,10 @@ import links from 'utils/links'
 import { changeColor } from 'components/Background'
 import gsap from 'gsap'
 import Background from 'components/Background'
+import { LogoContext } from 'components/Providers'
 
 const Footer = () => {
-
+  const setLogoColor = useContext(LogoContext).setColor
   const wrapperRef = useRef()
 
   useEffect(() => {
@@ -20,11 +21,17 @@ const Footer = () => {
         start: 'top bottom',
         end: "bottom bottom",
         scrub: true,
+        onLeave: () => {
+          setLogoColor(colors.black)
+        },
+        onEnterBack: () => {
+          setLogoColor(colors.tan)
+        }
       }
     })
 
     tl.add(changeColor('footer-background', colors.black, colors.tan), 0)
-  }, [])
+  }, [setLogoColor])
 
   return (
     <Wrapper ref={wrapperRef}>
