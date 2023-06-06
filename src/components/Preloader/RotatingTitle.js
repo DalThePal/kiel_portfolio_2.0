@@ -17,6 +17,10 @@ export const rotate = (text, noSet) => {
     }
   })
 
+  tl.set(`.${text.split(' ').join('-')}`, {
+    transformOrigin: "center center"
+  }, 0)
+
   tl.to(`.${text.split(' ').join('-')}`, {
     stagger: 0.1,
     rotateX: 90,
@@ -38,7 +42,7 @@ const RotatingTitle = ({text, className}) => {
 
   const boxes = text.split('').map((letter, index) => {
     return (
-      <Box className={text.split(' ').join('-')}>
+      <Box className={text.split(' ').join('-')} key={index}>
         <Face className='front'>{letter}</Face>
         <Face className='bottom'>{letter}</Face>
       </Box>
@@ -88,11 +92,13 @@ const Face = styled.span`
   transform-origin: center center;
   backface-visibility: hidden;
 
-  &.front {
-    transform: translate(-50%, -50%) translateZ(176px);
-  }
+  ${fresponsive(css`
+    &.front {
+      transform: translate(-50%, -50%) translateZ(176px);
+    }
 
-  &.bottom {
-    transform: rotateX(-90deg) translate(-50%, 0%) translateZ(-130px);
-  }
+    &.bottom {
+      transform: rotateX(-90deg) translate(-50%, 0%) translateZ(-350px);
+    }
+  `)}
 `
