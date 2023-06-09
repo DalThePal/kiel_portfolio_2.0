@@ -18,7 +18,7 @@ const RotatingTitle = ({text}) => {
     })
 
     tl.to(`.${text.split(' ').join('-')}`, {
-      stagger: 0.05,
+      stagger: 0.01,
       rotateX: 90,
       duration: 0.2
     })

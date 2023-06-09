@@ -94,7 +94,6 @@ const Wrapper = styled.header`
 const Image = styled.svg`
   position: relative;
   z-index: 2;
-  mix-blend-mode: difference;
   height: auto;
 
   ${fresponsive(css`

@@ -13,21 +13,18 @@ export default function Study({ data, className }) {
   const wrapperRef = useRef()
 
   const mouseMove = (e) => {
-    const rect = wrapperRef.current.getBoundingClientRect() 
-
     gsap.set(`.${imageClassName}`, {
       x: e.x,
-      y: e.y - rect.top,
       xPercent: -50,
-      yPercent: -50
     })
   }
 
   const mouseEnter = () => {
-    gsap.set(`.${imageClassName}`, {
-      rotate: Math.random() * (-20 - 20) + 20
-    })
-    gsap.to(`.${imageClassName}`, {
+    gsap.fromTo(`.${imageClassName}`, {
+      y: window.innerHeight,
+      opacity: 0
+    }, {
+      y: '45%',
       opacity: 1,
       duration: 0.5,
     })
@@ -38,6 +35,7 @@ export default function Study({ data, className }) {
   const mouseLeave = () => {
     gsap.to(`.${imageClassName}`, {
       opacity: 0,
+      y: window.innerHeight,
       duration: 0.5
     })
 
@@ -119,11 +117,11 @@ const Label = styled.span`
 const Image = styled(GatsbyImage)`
   pointer-events: none;
   position: absolute !important;
-  z-index: 1;
+  z-index: 3;
   top: 0;
   left: 0;
   opacity: 0;
-  transform: translateY(-50%);
+  transform: rotate(-25deg);
 
   ${fresponsive(css`
     width: 336px;
