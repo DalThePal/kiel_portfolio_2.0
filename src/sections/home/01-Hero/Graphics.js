@@ -101,7 +101,6 @@ export default function Graphics({ wrapper }) {
 
   const updateImagePosition = useCallback(() => {
     const { x, y } = mouseCoord.current
-    const length = 16
 
     const currentImage = `.graphic-${graphicIndex.current}`
 
@@ -140,7 +139,7 @@ export default function Graphics({ wrapper }) {
       ease: "power2.in"
     }, 0.7)
 
-  }, [images])
+  }, [])
 
   const mouseMove = useCallback(
     (e) => {
@@ -174,7 +173,7 @@ export default function Graphics({ wrapper }) {
         }
       }
     },
-    [updateImageOn, images, wrapper, updateImagePosition]
+    [updateImageOn, wrapper, updateImagePosition]
   )
 
   useEffect(() => {

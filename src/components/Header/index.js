@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useContext } from "react"
 import styled, { css } from "styled-components"
-import { fresponsive } from "utils/fullyResponsive"
+import { fresponsive, fmobile } from "utils/fullyResponsive"
 import Icon from 'images/menu.svg'
 import gsap from 'gsap'
 import colors from 'styles/colors'
@@ -87,7 +87,10 @@ const Wrapper = styled.header`
 
   ${fresponsive(css`
     height: 140px;
-    gap: 7px;
+  `)}
+
+  ${fmobile(css`
+    height: 80px;
   `)}
 `
 
@@ -98,6 +101,10 @@ const Image = styled.svg`
 
   ${fresponsive(css`
     width: 208px;
+  `)}
+
+  ${fmobile(css`
+    width: 142px;
   `)}
 `
 
@@ -116,6 +123,10 @@ const MenuIcon = styled.img`
     width: 40px;
     top: 49px;
     right: 101px;
+  `)}
+
+  ${fmobile(css`
+    display: none;
   `)}
 `
 
