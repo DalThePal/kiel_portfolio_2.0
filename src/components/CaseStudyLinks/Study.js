@@ -27,6 +27,7 @@ export default function Study({ data, className }) {
       y: '45%',
       opacity: 1,
       duration: 0.5,
+      ease: 'power3.inOut'
     })
 
     wrapperRef.current.addEventListener('mousemove', mouseMove)
