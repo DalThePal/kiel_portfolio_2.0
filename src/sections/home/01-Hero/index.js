@@ -77,6 +77,7 @@ const SubTitle = styled.span`
     order: 1;
     font-size: 28px;
     text-align: center;
+    letter-spacing: 0.01em;
   `)}
 `
 

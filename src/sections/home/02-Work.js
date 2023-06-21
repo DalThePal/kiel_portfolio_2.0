@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef, useContext } from 'react'
 import styled, { css } from 'styled-components'
-import { fresponsive } from 'utils/fullyResponsive'
+import { fresponsive, fmobile } from 'utils/fullyResponsive'
 import colors from 'styles/colors'
 import text from 'styles/text'
 import gsap from 'gsap'
@@ -17,7 +17,7 @@ const Work = () => {
   const [innerEl, setInnerEl] = useState(null)
   const titleRef = useRef()
 
-  const Images = useStaticQuery(graphql`
+  const images = useStaticQuery(graphql`
     query {
       antiSocial: file(relativePath: {eq: "anti-social-case-study.jpg"}) {
         childImageSharp {
@@ -106,11 +106,11 @@ const Work = () => {
       <Inner ref={ref => setInnerEl(ref)}>
         <Background id={"work-background"}/>
         <Title ref={titleRef}>WORK</Title>
-        <Image1 className="case-study-card" image={Images.antiSocial.childImageSharp.gatsbyImageData}/>
-        <Image2 className="case-study-card" image={Images.idk.childImageSharp.gatsbyImageData}/>
-        <Image3 className="case-study-card" image={Images.dallenHoyal.childImageSharp.gatsbyImageData}/>
-        <Image4 className="case-study-card" image={Images.lemond.childImageSharp.gatsbyImageData}/>
-        <Image5 className="case-study-card" image={Images.source7.childImageSharp.gatsbyImageData}/>
+        <Image1 className="case-study-card" image={images.antiSocial.childImageSharp.gatsbyImageData}/>
+        <Image2 className="case-study-card" image={images.idk.childImageSharp.gatsbyImageData}/>
+        <Image3 className="case-study-card" image={images.dallenHoyal.childImageSharp.gatsbyImageData}/>
+        <Image4 className="case-study-card" image={images.lemond.childImageSharp.gatsbyImageData}/>
+        <Image5 className="case-study-card" image={images.source7.childImageSharp.gatsbyImageData}/>
       </Inner>
     </Wrapper>
   )
@@ -149,6 +149,10 @@ const Title = styled.h2`
   ${fresponsive(css`
     font-size: 870px;
   `)}
+
+  ${fmobile(css`
+    font-size: 180px;
+  `)}
 `
 
 const Image = styled(GatsbyImage)`
@@ -158,6 +162,11 @@ const Image = styled(GatsbyImage)`
     width: 336.23px;
     height: 543.04px;
   `)}
+
+  ${fmobile(css`
+    width: 104.27px;
+    height: 168.4px;
+  `)}
 `
 
 const Image1 = styled(Image)`
@@ -166,6 +175,10 @@ const Image1 = styled(Image)`
   ${fresponsive(css`
     top: 1500px;
     left: 260px;
+  `)}
+
+  ${fmobile(css`
+    left: 0;
   `)}
 `
 
