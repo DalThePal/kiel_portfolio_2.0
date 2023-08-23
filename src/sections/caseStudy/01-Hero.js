@@ -8,7 +8,7 @@ import { GatsbyImage } from 'gatsby-plugin-image'
 const Hero = ({ image, title, project, role }) => {
   return (
     <Wrapper>
-      <Background image={image.childImageSharp.gatsbyImageData}/>
+      {image.gatsbyImageData && <Background image={image.gatsbyImageData}/>}
       <Gradient/>
       <Content>
         <Title>{title}</Title>

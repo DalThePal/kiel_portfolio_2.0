@@ -13,16 +13,16 @@ const VideoSection = ({ title1, text1, video, title2, text2, image1, image2, ima
         <Text>{text1}</Text>
       </Content>
       <Video muted autoPlay loop controls={false} playsInline>
-        <source src={video} type="video/webm"/>
+        <source src={video.src} type={video.type}/>
       </Video>
       <Content2>
         <Title>{title2}</Title>
         <Text>{text2}</Text>
       </Content2>
-      <Image1 image={image1.childImageSharp.gatsbyImageData}/>
-      <Image2 image={image2.childImageSharp.gatsbyImageData}/>
-      <Image3 image={image3.childImageSharp.gatsbyImageData}/>
-      <Image4 image={image4.childImageSharp.gatsbyImageData}/>
+      {image1.gatsbyImageData && <Image1 image={image1.gatsbyImageData}/>}
+      {image2.gatsbyImageData && <Image2 image={image2.gatsbyImageData}/>}
+      {image3.gatsbyImageData && <Image3 image={image3.gatsbyImageData}/>}
+      {image4.gatsbyImageData && <Image4 image={image4.gatsbyImageData}/>}
     </Wrapper>
   )
 }

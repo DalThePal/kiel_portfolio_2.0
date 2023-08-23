@@ -13,7 +13,7 @@ const Picture = ({ title, text, image }) => {
         <Text>{text}</Text>
       </Content>
       <Image
-        image={image.childImageSharp.gatsbyImageData}
+        image={image.gatsbyImageData}
       />
     </Wrapper>
   )
